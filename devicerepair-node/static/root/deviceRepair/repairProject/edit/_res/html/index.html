@@ -1,0 +1,137 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+               <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editBasic.area">
+                            <option ng-repeat="Area in AllArea[1]">{{Area}}</option>
+                        </select>
+                        <input type="text"  class="inputDom"  ng-verify="{}" ng-model="editBasic.area">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editBasic.projectGroup">
+                            <option  ng-repeat="AllO in AllOrage">{{AllO}}</option>
+                        </select>
+                        <input type="text" ng-verify="{}"   class="inputDom"  ng-model="editBasic.projectGroup">
+                    </div>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editBasic.projectName">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>申请人</em></label>
+                    <input type="text" ng-verify="{}"  ng-model="editBasic.applicant" >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设备名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editBasic.deviceName">
+                </li>
+                <li class="required mod">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资编号</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editBasic.materialCoding">
+                            <option ng-repeat="number in AllNum">{{number}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editBasic.materialCoding">
+                    </div>
+                </li>
+
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>经手人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editBasic.handler">
+                            <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editBasic.handler">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设备负责人</em></label>
+                    <select class="sele"  ng-model="editBasic.devicePrincipal">
+                        <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设备出现的问题</em></label>
+                    <input type="text" ng-verify="{}" ng-model="editBasic.deviceIssue">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资状态</em></label>
+                    <select class="sele" ng-model="editBasic.materialState">
+                        <option value="WAITING_REPAIR">待维修</option>
+                        <option value="NORMALITY">正常</option>
+                        <option value="SCRAPED">已报废</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>保修期限(月)</em></label>
+                    <input type="number" name="points" min="1" ng-verify="{}" ng-model="editBasic.termOfService">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否在保修期</em></label>
+                    <select class="sele" ng-model="editBasic.whetherWarranty" ng-options="item.value as item.name for item in Warranty">
+                        <option value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>福利模块负责人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editBasic.welfareModule">
+                            <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editBasic.welfareModule" >
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目经理</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="editBasic.pm">
+                            <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="editBasic.pm">
+                    </div>
+                </li>
+                <li>
+                    <label><em>保修联系人</em></label>
+                    <input type="text"  ng-model="editBasic.warrantyContact">
+                </li>
+                <li>
+                    <label><em>保修联系电话</em></label>
+                    <input type="text" ng-model="editBasic.warrantyContactPhone">
+                </li>
+                <li>
+                    <label><em>购买网址/店铺</em></label>
+                    <input type="text" ng-model="editBasic.buyAddress">
+                </li>
+                <li>
+                    <label><em>购买途径</em></label>
+                    <input type="text"  ng-model="editBasic.purchaseWay">
+                </li>
+                <li>
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="editBasic.comment">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="basicEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

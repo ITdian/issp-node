@@ -1,8 +1,11 @@
-<div class="nav-list">
-    <h3 class="header-menu big"><i class="nav-arrow"></i>法定节假日</h3>
-    <ul class="menu">
-        <li ng-click="navClass('gift')" ng-class="{'active':navCla=='gift'}"  ui-sref="_root.legalholiday.holiday.gift.list"><a href="javascript:void(0)">节假日礼品标准</a></li>
-        <li ng-click="navClass('festivaltime')" ng-class="{'active':navCla=='festivaltime'}"  ui-sref="_root.legalholiday.holiday.festivaltime.list"><a href="javascript:void(0)">公司放假时间安排</a></li>
-        <li ng-click="navClass('project')" ng-class="{'active':navCla=='project'}"  ui-sref="_root.legalholiday.holiday.project.list"><a href="javascript:void(0)">法定节假日放假方案</a></li>
+<div class="nav-list"  ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
+    <ul class="menu" ng-repeat="menuInfo in list.menuList" ng-if="list.menuList.length" ng-show="list.showIs">
+        <li ng-click="navClass('gift')" ng-show="giftstandard" ng-class="{'active':navCla=='gift'}"  ui-sref="_root.legalholiday.holiday.gift.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
+        <li ng-click="navClass('festivaltime')" ng-show="companyfestivaltime" ng-class="{'active':navCla=='festivaltime'}"  ui-sref="_root.legalholiday.holiday.festivaltime.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}</a></li>
+        <li ng-click="navClass('project')"  ng-show="holidayprogramme"  ng-class="{'active':navCla=='project'}"  ui-sref="_root.legalholiday.holiday.project.list[12]"><a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
+        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}" ng-show="cuspermission" ui-sref="_root.legalholiday.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name4}}</a></li>
+        <li ng-click="navClass('version')" ng-class="{'active':navCla=='version'}"  ui-sref="_root.legalholiday.versionInfo.version.list[12]" ><a href="javascript:void(0)">{{menuInfo.name5}}</a></li>
+        <li ng-click="navClass('help')" ng-class="{'active':navCla=='help'}"  ui-sref="_root.legalholiday.versionInfo.help.list[12]" ><a href="javascript:void(0)">{{menuInfo.name6}}</a></li>
     </ul>
 </div> 

@@ -71,6 +71,7 @@ app.controller('increAgoListCtrl',function($scope,increAgoSer,toastr,$stateParam
         });
     };
     function activatePage(page) {
+        if($scope.increAgoLists)return;
         var listData = {
             page:page || 1
         };

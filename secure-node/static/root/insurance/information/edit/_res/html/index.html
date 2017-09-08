@@ -4,11 +4,23 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
-                    <input type="text" ng-verify="{}" ng-model="infor.name">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="infor.name" class="sele" ng-change="changSelect()">
+                            <option ng-repeat="name in names" value="{{name.username}}">{{name.username}}</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="infor.name">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>员工编号</em></label>
-                    <input type="text" ng-verify="{}" ng-model="infor.employeeNum">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="infor.employeeNum" class="sele">
+                            <option ng-repeat="employeeNum in employeeNums" value="{{employeeNum.employeeNumber}}">{{employeeNum.employeeNumber}}</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="infor.employeeNum">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
@@ -24,15 +36,33 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>身份证号码</em></label>
-                    <input type="text" ng-verify="{}" ng-model="infor.idCart">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="infor.idCart" class="sele">
+                            <option ng-repeat="idCart in idCarts" value="{{idCart.identityCard}}">{{idCart.identityCard}}</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="infor.idCart">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>身份证籍贯</em></label>
-                    <input type="text" ng-verify="{}" ng-model="infor.born">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="infor.born" class="sele">
+                            <option ng-repeat="born in borns" value="{{born.address}}">{{born.address}}</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="infor.born">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>联系方式</em></label>
-                    <input type="text" ng-verify="{}" ng-model="infor.tel">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="infor.tel" class="sele">
+                            <option ng-repeat="tel in tels" value="{{tel.telephone}}">{{tel.telephone}}</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="infor.tel">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>入职时间</em></label>

@@ -1,0 +1,88 @@
+<div class="content-input" verify-scope="tipStyle: 1">
+    <section class="interval">
+        <ul class="inter-left">
+            <li class="required">
+                <label><i><img src="/images/mandatory.png"></i><em>汇总模块</em></label>
+                <select class="sele" ng-model="editMail.moduleType">
+                    <option value="MATERIALBUY">物质购买</option>
+                    <option value="MATERIALSTOR">物质入库</option>
+                    <option value="MATERIALMAINTEN">物质维修</option>
+                </select>
+            </li>
+            <li >
+                <label><em>备注</em></label>
+                <input type="text" class="remark" ng-model="addEmails.remark" style="border:1px solid #1aafea">
+            </li>
+            <li class="required f-l">
+                <label><i><img src="/images/mandatory.png"></i><em>发送间隔</em></label>
+                <input type="number" ng-model="editMail.sendNum" ng-verify="{}">
+                <select class="sele" ng-model="editMail.collectSendUnit">
+                    <option value="MINUTE">分钟</option>
+                    <option value="HOURS">小时</option>
+                    <option value="DAY">天</option>
+                    <option value="WEEK">周</option>
+                    <option value="MONTH">月</option>
+                    <option value="QUARTER">季</option>
+                    <option value="YEAR">年</option>
+                </select>
+            </li>
+            <li class="required ">
+                <label><i><img src="/images/mandatory.png"></i><em>选择对象</em></label>
+                <select class="sele one-select" ng-model="checkedEmail" ng-init="checkedEmail='自由录入'">
+                    <option ng-repeat="one in emails">{{one}}</option>
+                </select>
+                <input type="text" style=" width:22%;right: 102px; background-color: #fff;" ng-model="sendObjectList" ng-show="checkedEmail=='自由录入'">
+                <div class="select two-select" ng-show="checkedEmail=='个人邮箱'">
+                    <p class="select-text" >
+                        <span></span>
+                    </p>
+                    <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="names" extra-settings="stringSettings"></div>
+                </div>
+                <div class="select two-select" ng-show="checkedEmail=='公邮'">
+                    <p class="select-text" >
+                        <span></span>
+                    </p>
+                    <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="workOptions" selected-model="names" extra-settings="stringSettings"></div>
+                </div>
+                <button type="button" class="data-add" ng-click="addMail()">添加</button>
+            </li>
+
+        </ul>
+        <ul class="inter-right">
+            <div class="sum-select">
+                <label><i><img src="/images/mandatory.png"></i><em>汇总类型</em></label>
+                <select class="sele" ng-model="editMail.summaryType">
+                    <option value="MATCLASSIFBUY">物质分类购买情况汇总</option>
+                    <option value="DEPARTAREABUY">部门地区购买情况汇总</option>
+                    <option value="PERSONMATBUY">个人物质购买情况汇总</option>
+                    <option value="STOCKSOURCE">入库来源汇总</option>
+                    <option value="AREASTOCK">地区入库情况汇总</option>
+                    <option value="MAINTENSTATUS">维修状态分类情况汇总</option>
+                    <option value="WARRANTYSTATUS">保修状态分类情况汇总</option>
+                </select>
+            </div>
+            <div class="sum-select">
+                <label><i><img src="/images/mandatory.png"></i><em>汇总间隔</em></label>
+                <select class="sele" ng-model="addEmails.collectUnit">
+                    <option value="EVERYDAY">本天</option>
+                    <option value="EVERYWEEK">本周</option>
+                    <option value="EVERYMONTH">本月</option>
+                    <option value="EVERYYEAR">本年</option>
+                </select>
+            </div>
+            <li class="f-send">
+                <p class="send-o">
+                    <em>发送对象:</em>
+                    <span>(双击可以删除该条邮箱地址)</span>
+                </p>
+                <div class="dclick">
+                    <p ng-repeat="list in objLists" ng-dblclick="dbSend($index)">{{list}}</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="emailEditFun()">提交</button>
+    </p>
+</div>

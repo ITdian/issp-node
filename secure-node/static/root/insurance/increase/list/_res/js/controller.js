@@ -103,6 +103,7 @@ app.controller('increListCtrl',function($scope,increSer,toastr,$stateParams,$sta
         });
     };
     function activatePage(page) {
+        if($scope.increLists)return;
         var listData = {
             page:page || 1
         };

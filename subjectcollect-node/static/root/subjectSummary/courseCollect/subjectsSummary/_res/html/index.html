@@ -1,55 +1,50 @@
 <div class="collect">
     <div class="collect-select">
-        <span>开始日期：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter start"  ></span>
-        <span>结束日期：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter end"  ></span>
+        <span>  
+            开始月份:
+            <div class="recordse">
+                <select ng-model="monthsa" style="padding-left:10%;">
+                    <option ng-repeat="month in months" value="{{month}}">{{month}}</option>
+                </select>
+            </div>
+        </span>
+        <span>  
+            结束月份:
+            <div class="recordse">
+                <select ng-model="monthsb" style="padding-left:10%;">
+                    <option ng-repeat="month in months" value="{{month}}">{{month}}</option>
+                </select>
+            </div>
+        </span>
         <span>
             一级科目：
-            <select class="sele"  ng-model="firstSubject" ng-change="changSelect()">
-                <option value="">请选择</option>
+            <select class="sele"  ng-model="firstSubject">
                 <option ng-repeat="first in firstLevel" value="{{first}}">{{first}}</option>
             </select>
             <input type="text"  class="inputArea" ng-model="firstSubject">
-        </span>
-        <span>
-            二级科目：
-            <select class="sele"  ng-model="secondSubject"  ng-change="changThird()">
-                <option value="">请选择</option>
-                <option ng-repeat="second in secondLevel" value="{{second}}">{{second}}</option>
-            </select>
-            <input type="text"  class="inputArea" ng-model="secondSubject">
-        </span>
-        <span>
-            三级科目：
-            <select class="sele"  ng-model="thirdSubject">
-                <option value="">请选择</option>
-                <option ng-repeat="third in thirdLevel" value="{{third}}">{{third}}</option>
-            </select>
-            <input type="text"  class="inputArea" ng-model="thirdSubject">
         </span>
         <button ng-click="collect()">汇总</button>
     </div>
     <ul class="sum-list">
         <li class="sum-thead">
             <span>一级科目</span>
-            <span>二级科目</span>
-            <span>三级科目</span>
-            <span>借方金额</span>
-            <span>贷方金额</span>
-            <span>凭证日期</span>
-            <span>地区</span>
-            <span>项目组</span>
-            <span>项目名称</span>
+            <span>月份</span>
+            <span>期初借方余额</span>
+            <span>期初贷方余额</span>
+            <span>本期借方发生额</span>
+            <span>本期贷方发生额</span>
+            <span>期末借方余额</span>
+            <span>期末贷方月余额</span>
         </li>
         <li class="sum-tbody" ng-repeat="Lists in summaryLists">
             <span>{{::Lists.firstSubject}}</span>
-            <span>{{::Lists.secondSubject}}</span>
-            <span>{{::Lists.thirdSubject}}</span>
-            <span>{{::Lists.borrowMoney}}</span>
-            <span>{{::Lists.loanMoney}}</span>
-            <span>{{::Lists.voucherDate}}</span>
-            <span>{{::Lists.area}}</span>
-            <span>{{::Lists.projectGroup}}</span>
-            <span>{{::Lists.projectName}}</span>
+            <span>{{::Lists.months}}</span>
+            <span>{{::Lists.beginningDebitAmount}}</span>
+            <span>{{::Lists.beginningCreditAmount}}</span>
+            <span>{{::Lists.issueDebitAmount}}</span>
+            <span>{{::Lists.issueCreditAmount}}</span>
+            <span>{{::Lists.endDebitAmount}}</span>
+            <span>{{::Lists.endCreditAmount}}</span>
         </li>
     </ul>
 </div>

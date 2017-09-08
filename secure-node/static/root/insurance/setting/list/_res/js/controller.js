@@ -9,6 +9,7 @@ app.controller('settingListCtrl',function($scope,settingSer,toastr,$stateParams,
     };
 
     function activatePage(page) {
+        if($scope.settingLists)return;
         var pages = {
             page:page
         };

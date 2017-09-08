@@ -87,6 +87,7 @@ app.controller('waitListCtrl',function($scope,waitSer,toastr,$stateParams,$state
         $scope.isView = newIs;
     });
     function activatePage(page) {
+        if($scope.waitLists)return;
         var listData = {
             page:page || 1
         };

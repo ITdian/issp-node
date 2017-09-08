@@ -1,10 +1,6 @@
 var app = angular.module('subpackageList', ['ng-pagination','toastr']);
 app.controller('subpackageListCtrl',function($scope,subpackageSer,toastr,$state,$stateParams) {
     $scope.$emit('changeId', null);
-    //监听切换搜索是否出现
-    $scope.$on('iSsearch',function(event,newIs){
-        $scope.isView = newIs;
-    });
     //删除
     //获取id
     if($stateParams.id){
@@ -152,21 +148,3 @@ app.filter('cov',function(){
         return result;
     }
 })
-//自定义过滤
-app.filter('cover', function(){
-    return function (val) {
-        var result;
-        switch(val){
-            case "COOPERATE":
-                result = "项目合作";
-                break;
-            case "TRAIL":
-                result = "项目跟进";
-                break;
-            case "ABANDON":
-                result = "项目丢弃";
-                break;
-        }
-        return result;
-    }
-});

@@ -21,6 +21,18 @@ app.controller('courseCollectCtrl',function ($scope,$state) {
         if($location.search().name){$scope.menuClass = $location.search().name + 'Menu'}
 
     }
+    //多导航折叠
+    $scope.flag=true;
+    $scope.noflag=false
+    $scope.flagtoggon=function () {
+       if($scope.flag){
+           $scope.flag=false;
+           $scope.noflag=true;
+       } else{
+           $scope.flag=true;
+           $scope.noflag=false;
+       }
+    }
     $scope.menuCheck = function (name) {
         var buttonName = name;
         $scope.buttonShow = true;

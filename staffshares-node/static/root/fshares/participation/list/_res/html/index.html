@@ -1,0 +1,81 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>方案代码</span>
+            <span>方案名称</span>
+            <span>税后利润</span>
+            <span>持股数</span>
+            <span>总股本</span>
+            <span>每股收益</span>
+            <span>总收益/分红</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in partLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.code}}</p>
+                    <p mod>{{lists.name}}</p>
+                    <p mod>{{lists.taxProfit}}</p>
+                    <p mod>{{lists.num}}</p>
+                    <p mod>{{lists.totalEquity}}</p>
+                    <p mod>{{lists.earnings}}</p>
+                    <p mod>{{lists.totalEarnings}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>购入时间</span>
+                                <span>持股时长</span>
+                                <span>分红发放时间</span>
+                                <span>本次红利收益时间段</span>
+                                <span>备注</span>
+                                <span>持股人确认情况</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.buyTime}}</span>
+                                <span mod>{{lists.duration}}</span>
+                                <span mod>{{lists.dividendTime}}</span>
+                                <span mod>{{lists.time}}</span>
+                                <span mod>{{lists.remark}}</span>
+                                <span mod>{{lists.situation | cover4}}</span>
+                            </p>
+                        </li>
+                    </ul>  
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+

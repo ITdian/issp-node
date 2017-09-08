@@ -8,7 +8,12 @@ app.factory('inforSer',function ($http) {
         inforCount:inforCount,
         inforDelete:inforDelete,
         inforPermission:inforPermission,
-        inforUrl:inforUrl
+        inforUrl:inforUrl,
+        getName:getName,
+        getEmployeeNum:getEmployeeNum,
+        getIdCart:getIdCart,
+        getBorn:getBorn,
+        getTel:getTel
     };
     function inforList(data) {
         return $http.get('/inforList/list',{
@@ -57,5 +62,45 @@ app.factory('inforSer',function ($http) {
 
         })
     }
+    //---------------------------------------
+    //获取姓名
+    function getName(data){
 
+        return $http.get('/getName/name',{
+            params: data
+
+        })
+    }
+    //获取员工编号
+    function getEmployeeNum(data){
+
+        return $http.get('/getEmployeeNum/employeeNum',{
+            params: data
+
+        })
+    }
+    //获取身份证号码
+    function getIdCart(data){
+
+        return $http.get('/getIdCart/idCart',{
+            params: data
+
+        })
+    }
+    //获取身份证籍贯
+    function getBorn(data){
+
+        return $http.get('/getBorn/born',{
+            params: data
+
+        })
+    }
+    //获取联系方式
+    function getTel(data){
+
+        return $http.get('/getTel/tel',{
+            params: data
+
+        })
+    }
 });

@@ -1,12 +1,17 @@
 <div class="nav-list" ng-repeat="list in showsList">
     <h3 class="header-menu big"  ng-click="showMenu(list,true)"><i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>{{list.item}}</h3>
     <ul class="menu" ng-if="list.menuList.length" ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
-        <li ng-click="navClass('ssui')" ng-class="{'active':navCla=='ssui'}"  ui-sref="_root.business.contract.ssui.list[12]"><a href="javascript:void(0)">{{menuInfo.name}}</a></li>
-        <li ng-click="navClass('subpackage')" ng-class="{'active':navCla=='subpackage'}"  ui-sref="_root.business.outsource.subpackage.list[12]"><a href="javascript:void(0)">{{menuInfo.name2}}
-        </a></li>
-        <li ng-click="navClass('setting')" ng-class="{'active':navCla=='setting'}"  ui-sref="_root.business.setting.list[12]" ><a href="javascript:void(0)">{{menuInfo.name3}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.business.contract.ssui.list[12]" ng-show="contract">
+        	<a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.business.outsource.subpackage.list[12]" ng-show="contract">
+        	<a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.business.email.list[12]" ng-show="contract">
+        	<a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.business.setting.list[12]" ng-show="cuspermission" >
+        	<a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
     </ul>
 </div>
-
-
-<!--  projectmeasure/marketserve    basicinfo                      -->

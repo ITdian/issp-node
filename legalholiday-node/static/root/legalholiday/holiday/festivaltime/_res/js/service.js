@@ -1,13 +1,18 @@
 var app = angular.module('festivaltimeServe',[]);
 app.factory('festivaltimeSer',function ($http) {
     return {
-        listMarketserve1 : listMarketserve,
+        menuPermission:menuPermission,
+        listMarketserve1:listMarketserve,
         countBaseInfo1:countBaseInfo,
         addMarketserveapply1:addMarketserveapply,
         getOneById1:getOneById,
         gitfEdit:gitfEdit,
         festivalDelete:festivalDelete
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/festivaltime/guidePermission/'+data);
+    }
     //列表
     function listMarketserve(data) {
         return $http.get('/legalholiday/festivaltime/list',{

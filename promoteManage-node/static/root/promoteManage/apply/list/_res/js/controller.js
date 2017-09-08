@@ -10,6 +10,7 @@ app.controller('applyListCtrl',function($scope,applySer,toastr,$stateParams,$sta
         }
     }
     function activatePage(page) {
+        if($scope.applyLists)return;
         var listData = {
             page:page || 1
         };

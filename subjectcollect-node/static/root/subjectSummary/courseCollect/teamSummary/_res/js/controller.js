@@ -1,6 +1,6 @@
 var app = angular.module('teamSummary', ['toastr']);
 app.controller('teamSummaryCtrl', function($scope, courseCollectSer,toastr){
-
+$scope.months=['1','2','3','4','5','6','7','8','9','10','11','12']
     $scope.showed=true;
     // 获取项目组
     courseCollectSer.subjectsAll().then(function(response){
@@ -13,17 +13,13 @@ app.controller('teamSummaryCtrl', function($scope, courseCollectSer,toastr){
     $scope.collect = function(){
         var vm = $scope;
         vm.sum={
-            startTime:angular.element('.start').val(),
-            endTime:angular.element('.end').val(),
+            startTime:$scope.monthsa,
+            endTime:$scope.monthsb,
             projectGroup:vm.projectGroup
         };
         courseCollectSer.teamSummary(vm.sum).then(function(response){
             if(response.data.code == 0){
-                if( vm.sum.projectGroup == undefined || vm.sum.projectGroup == ''){
-                    $scope.showed=true
-                }else {
-                    $scope.showed=false
-                }
+                
                 $scope.summaryLists = response.data.data;
 
             }else{

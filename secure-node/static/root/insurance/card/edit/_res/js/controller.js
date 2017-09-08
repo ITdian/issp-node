@@ -11,7 +11,22 @@ app.controller('cardEditCtrl', function($scope, cardSer,$stateParams,$state,toas
         }
 
     });
-
+    cardSer.getName().then(function(response){
+        if(response.data.code == 0){
+            $scope.names= response.data.data;
+            // $scope.names=[{'username':'111'},{'username':'222'}]
+        }
+    });
+    cardSer.getEmployeeNum().then(function(response){
+        if(response.data.code == 0){
+            $scope.employeeNums= response.data.data;
+        }
+    });
+    cardSer.getCity().then(function(response){
+        if(response.data.code == 0){
+            $scope.citys= response.data.data;
+        }
+    });
     //编辑点击提交
     $scope.cardEditFun = function(){
         console.log(123)

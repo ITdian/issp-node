@@ -71,6 +71,12 @@ app.controller('waitCtrl',function ($scope,$state) {
         $scope.menuClass = 'addMenu';
         $scope.idListd = ''
     };
+     $scope.summaryArea = function(){
+        $scope.menuClass = 'summaryAreaMenu'
+    };
+    $scope.summaryProject = function(){
+        $scope.menuClass = 'summaryProjectMenu'
+    };
 });
 //自定义过滤
 app.filter('cover', function(){

@@ -1,0 +1,7 @@
+{
+  "default":"dev",
+  "dev": {
+    "rurl": "http://interiorrecommend-consumer:8080",
+    "user": "http://user-consumer:8080"
+  }
+}

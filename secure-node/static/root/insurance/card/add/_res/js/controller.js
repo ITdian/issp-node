@@ -1,6 +1,21 @@
 var app = angular.module('cardAdd', ['toastr']);
 app.controller('cardAddCtrl', function ($scope, cardSer, $state, toastr) {
-
+    cardSer.getName().then(function(response){
+        if(response.data.code == 0){
+            $scope.names= response.data.data;
+            // $scope.names=[{'username':'111'},{'username':'222'}]
+        }
+    });
+    cardSer.getEmployeeNum().then(function(response){
+        if(response.data.code == 0){
+            $scope.employeeNums= response.data.data;
+        }
+    });
+    cardSer.getCity().then(function(response){
+        if(response.data.code == 0){
+            $scope.citys= response.data.data;
+        }
+    });
     //添加
     $scope.cardAddFun = function () {
         var vm = $scope;

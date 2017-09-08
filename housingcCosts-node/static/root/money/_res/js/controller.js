@@ -77,11 +77,11 @@ app.controller('moneyCtrl', function ($scope,$state) {
                 obj.showIs=event;
                 /* angular.forEach(function(item){ showSubAble sublist*/
                 this.showsList.forEach(function(item){
-                    //if(item.id!=obj.id){
-                        //item.showIs=!event;
-                    //}else{
-                        //item.showIs=event;
-                    //}
+                    if(item.id!=obj.id){
+                        item.showIs=!event;
+                    }else{
+                        item.showIs=event;
+                    }
                 });
             }
         }
@@ -131,4 +131,37 @@ app.directive('mod',function(){
 
         }
     }
-});
+}).directive('justDate', function() {
+            return {
+            require: '?ngModel',
+            restrict: 'A',
+                scope: {
+                    ngModel: '=',
+                    backFn: '&bf'
+            },
+                link: function(scope, element, attr, ngModel) {
+                    var _date = null,_config={};
+                
+                    // 初始化参数 
+                    _config = {
+                    elem: '#' + attr.id,
+                        format: attr.format != undefined && attr.format != '' ? attr.format : 'YYYY-MM-DD',
+                    choose:setViewValue
+                    };         
+                ngModel.$render = function() {
+                    element.val(ngModel.$viewValue || '');
+                };
+                    element.on('click', function() {
+                        laydate(_config);
+                        angular.element('#laydate_table').css('display','none');
+                });
+                function setViewValue() {
+                        var val = element.val();
+                        ngModel.$setViewValue(val);
+                        scope.$apply(function(){
+                            scope.backFn();
+                        })
+                    }
+            }  
+        }
+    });

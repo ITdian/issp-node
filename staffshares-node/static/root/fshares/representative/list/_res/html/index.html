@@ -1,0 +1,69 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>持股人</span>
+            <span>申请时间</span>
+            <span>地区</span>
+            <span>项目组/部门</span>
+            <span>岗位</span>
+            <span>在职时间（月数）</span>
+            <span>申请原因</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in represLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.shareholder}}</p>
+                    <p mod>{{lists.time}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.department}}</p>
+                    <p mod>{{lists.position}}</p>
+                    <p mod>{{lists.months}}</p>
+                    <p mod>{{lists.reason}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>备注</span>
+                                <span>财务运营部负责人</span>
+                                <span>审核意见</span>
+                                <span>规划模块</span>
+                                <span>审核意见</span>
+                                <span>总经办</span>
+                                <span>审核意见</span>
+                                <span>投票数</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.remark}}</span>
+                                <span mod>{{lists.financial}}</span>
+                                <span mod>{{lists.opinion}}</span>
+                                <span mod>{{lists.planModule}}</span>
+                                <span mod>{{lists.opinion1}}</span>
+                                <span mod>{{lists.manager}}</span>
+                                <span mod>{{lists.opinion2}}</span>
+                                <span mod>{{lists.votes}}</span>
+                            </p>
+                        </li>
+                    </ul>  
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->

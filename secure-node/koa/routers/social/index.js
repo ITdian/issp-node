@@ -549,10 +549,10 @@ module.exports = function(){
                 $self.body=error.error;
             }));
         
-    }).get('/increAgoName/name', function*(){//获取网站名称
+    }).get('/getCompany/company', function*(){//获取公司名称
         var $self = this;
         var countToken = {userToken:$self.cookies.get('token')};
-        yield (server().increAgoName(countToken)
+        yield (server().getCompany(countToken)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;
@@ -1373,6 +1373,118 @@ module.exports = function(){
         var summaryData = $self.request.query;
         summaryData.userToken = $self.cookies.get('token');
         yield (server().getBiddingNum(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    //--------------------------------------------
+    }).get('/getName/name', function*(){//获取姓名
+        var $self = this;
+        var countToken = {userToken:$self.cookies.get('token')};
+        yield (server().getName(countToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getEmployeeNum/employeeNum', function*(){//获取员工编号
+        var $self = this;
+        var countToken = {userToken:$self.cookies.get('token')};
+        yield (server().getEmployeeNum(countToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getCity/city', function*(){//获取地区
+        var $self = this;
+        var countToken = {userToken:$self.cookies.get('token')};
+        yield (server().getCity(countToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getTeam/team', function*(){//获取项目组
+        var $self = this;
+        var countToken = {userToken:$self.cookies.get('token')};
+        yield (server().getTeam(countToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getJob/job', function*(){//获取岗位
+        var $self = this;
+        var countToken = {userToken:$self.cookies.get('token')};
+        yield (server().getJob(countToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getJobLevel/jobLevel', function*(){//获取岗位层级
+        var $self = this;
+        var countToken = {userToken:$self.cookies.get('token')};
+        yield (server().getJobLevel(countToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getIdCart/idCart', function*(){ //获取身份证号码
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().getIdCart(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getBorn/born', function*(){ //获取身份证籍贯
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().getBorn(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/getTel/tel', function*(){ //获取联系方式
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().getTel(summaryData)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;

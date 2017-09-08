@@ -40,6 +40,7 @@ app.controller('peopleListCtrl',function($scope,peopleSer,toastr,$stateParams,$s
         });
     };
     function activatePage(page) {
+        if($scope.peopleLists)return;
         var listData = {
             page:page || 1
         };

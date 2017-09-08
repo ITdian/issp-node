@@ -1,0 +1,17 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="XXLIST" ng-init="menuCheck('XXLIST')">
+        <a href="javascript:void(0)" title="列表" class="lis">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="XXADD" ng-init="menuCheck('XXADD')">
+        <a href="javascript:void(0)" title="添加" class="add">添加</a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="XXAPPLY" ng-init="menuCheck('XXAPPLY')">
+        <a href="javascript:void(0)" title="年假申请"  class="same-one see">年假申请</a>
+    </li>
+    <li ng-click="look()" ng-class="{'current':menuClass=='lookMenu','seeParent':idListd}" ng-show="XXSEE" ng-init="menuCheck('XXSEE')">
+        <a href="javascript:void(0)" title="查看年假申请记录" class="lis see">查看年假申请记录</a>
+    </li>
+    <li ng-click="mine()" ng-class="{'current':menuClass=='mineMenu'}" ui-sref=".mine[12]" ng-show="XXMYSELF" ng-init="menuCheck('XXMYSELF')">
+        <a href="javascript:void(0)" title="我的年假记录" class="lis">我的年假记录</a>
+    </li>
+</ul>

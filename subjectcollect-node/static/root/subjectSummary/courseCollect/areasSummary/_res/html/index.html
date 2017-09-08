@@ -1,11 +1,24 @@
 <div class="collect">
     <div class="collect-select">
-        <span>开始日期：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter start"  ></span>
-        <span>结束日期：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter end"  ></span>
+        <span>  
+            开始月份:
+            <div class="recordse">
+                <select ng-model="monthsa" style="padding-left:10%;">
+                    <option ng-repeat="month in months" value="{{month}}">{{month}}</option>
+                </select>
+            </div>
+        </span>
+        <span>  
+            结束月份:
+            <div class="recordse">
+                <select ng-model="monthsb" style="padding-left:10%;">
+                    <option ng-repeat="month in months" value="{{month}}">{{month}}</option>
+                </select>
+            </div>
+        </span>
         <span>
             地区：
             <select class="sele"  ng-model="area">
-                <option value="">请选择</option>
                 <option ng-repeat="area in areas" value="{{area}}">{{area}}</option>
             </select>
             <input type="text"  class="inputArea" ng-model="area">
@@ -15,25 +28,23 @@
     <ul class="sum-list">
         <li class="sum-thead">
             <span>地区</span>
-            <span ng-hide="showed">一级科目</span>
-            <span ng-hide="showed">二级科目</span>
-            <span ng-hide="showed">三级科目</span>
-            <span>借方金额</span>
-            <span>贷方金额</span>
-            <span ng-hide="showed">凭证日期</span>
-            <span ng-hide="showed">项目组</span>
-            <span ng-hide="showed">项目名称</span>
+            <span>月份</span>
+            <span>期初借方余额</span>
+            <span>期初贷方余额</span>
+            <span>本期借方发生额</span>
+            <span>本期贷方发生额</span>
+            <span>期末借方余额</span>
+            <span>期末贷方月余额</span>
         </li>
         <li class="sum-tbody" ng-repeat="Lists in summaryLists">
             <span>{{::Lists.area}}</span>
-            <span ng-hide="showed">{{::Lists.firstSubject}}</span>
-            <span ng-hide="showed">{{::Lists.secondSubject}}</span>
-            <span ng-hide="showed">{{::Lists.thirdSubject}}</span>
-            <span>{{::Lists.borrowMoney}}</span>
-            <span>{{::Lists.loanMoney}}</span>
-            <span ng-hide="showed">{{::Lists.voucherDate}}</span>
-            <span ng-hide="showed">{{::Lists.projectGroup}}</span>
-            <span ng-hide="showed">{{::Lists.projectName}}</span>
+            <span>{{::Lists.months}}</span>
+            <span>{{::Lists.beginningDebitAmount}}</span>
+            <span>{{::Lists.beginningCreditAmount}}</span>
+            <span>{{::Lists.issueDebitAmount}}</span>
+            <span>{{::Lists.issueCreditAmount}}</span>
+            <span>{{::Lists.endDebitAmount}}</span>
+            <span>{{::Lists.endCreditAmount}}</span>
         </li>
     </ul>
 </div>

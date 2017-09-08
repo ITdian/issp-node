@@ -1,6 +1,7 @@
 var app = angular.module('projectServe',[]);
 app.factory('projectSer',function ($http) {
     return {
+        menuPermission:menuPermission,
         listData:listData,
         countBaseInfo1:countBaseInfo,
         addMarketserveapply1:addMarketserveapply,
@@ -19,6 +20,10 @@ app.factory('projectSer',function ($http) {
         checkNoticeList:checkNoticeList,
         checkNoticeCount:checkNoticeCount
     };
+    //菜单权限
+    function menuPermission(data) {
+        return $http.get('/project/guidePermission/'+data);
+    }
     //列表
     function listData(data) {
         return $http.get('/legalholiday/project/list',{

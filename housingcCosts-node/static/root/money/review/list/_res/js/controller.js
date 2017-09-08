@@ -43,6 +43,7 @@ app.controller('reviewListCtrl',function($scope,reviewSer,toastr,$stateParams,$s
         $scope.isView = newIs;
     });
     function activatePage(page) {
+        if($scope.reveLists)return;
         var listData = {
             page:page || 1
         };

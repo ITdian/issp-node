@@ -1,0 +1,89 @@
+<div class="content-tab list">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select class="salc" ng-model="checkedName"  ng-init="checkedName='编号'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <select class="sle" ng-model="numbers" ng-show="checkedName=='编号'">
+            <option value="">请选择编号</option>
+            <option ng-repeat="(key,value) in allNumbers track by key">{{value}}</option>
+        </select>
+        <select class="sle" ng-model="classifys" ng-show="checkedName=='分类'">
+            <option value="">请选择分类</option>
+            <option ng-repeat="(key,value) in allClass track by key">{{value}}</option>
+        </select>
+        <select class="sle" ng-model="authors" ng-show="checkedName=='作者'">
+            <option value="">请选择作者</option>
+            <option ng-repeat="(key,value) in allAuthors track by key">{{value}}</option>
+        </select>
+        <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image publishDate" ng-show="checkedName=='发布日期'" ng-model="publishDate">
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
+    </div>
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>编号</span>
+            <span>分类</span>
+            <span>标题</span>
+            <span>作者</span>
+            <span>发布日期</span>
+            <span>发布对象</span>
+            <span>状态</span>
+        </li>
+        <li class="list-all" ng-repeat="lists in noticeLists" style="display: {{lists._delete?'none':'block'}};">
+            <section class="{{lists.status=='FREEZE'?'congeal':''}}">
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.number}}</p>
+                    <p mod>{{::lists.classify}}</p>
+                    <p mod>{{::lists.title}}</p>
+                    <p mod>{{::lists.author}}</p>
+                    <p mod>{{::lists.publishDate}}</p>
+                    <p mod>{{::lists.recipient}}</p>
+                    <p mod>{{lists.status | notice}}</p>
+                </div>
+                <div class="thaw-modal">
+                    <button ng-click="thaw(lists)">解冻</button>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div class="delete mod" ng-show="congealShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要冻结这条数据？</p>
+        <div class="btn">
+            <button ng-click="conFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

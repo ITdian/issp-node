@@ -1,14 +1,17 @@
 
 var app = angular.module('summary', ['toastr']);
 app.controller('summaryCtrl', function($scope, reviewSer,toastr){
-$scope.months=['1','2','3','4','5','6','7','8','9','10','11','12']
     $scope.showed=true;
+    $scope.show=function(val){
+        $scope.date = $scope.date.split('-').splice(0,2).join('-')
+    }
+
     $scope.collect = function(){
         var vm = $scope;
         vm.sum={
-            month:$scope.month
+            date:$scope.date
         };
-        reviewSer.summaryReview(vm.sum.month).then(function(response){
+        reviewSer.summaryReview(vm.sum.date).then(function(response){
             if(response.data.code == 0){
                 $scope.summaryLists = response.data.data;
             }else{

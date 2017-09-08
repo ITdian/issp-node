@@ -1,0 +1,12 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="XXLIST" ng-init="menuCheck('XXLIST')">
+        <a href="javascript:void(0)" title="列表" class="lis">列表<span></span></a>
+    </li>
+
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="XXADD" ng-init="menuCheck('XXADD')">
+        <a href="javascript:void(0)" title="审核"  class="same-one see">审核<span></span></a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="XXADD" ng-init="menuCheck('XXADD')">
+        <a href="javascript:void(0)" title="删除" class="same-two see" >删除<span></span></a>
+    </li>
+</ul>

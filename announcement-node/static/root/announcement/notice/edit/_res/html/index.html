@@ -1,0 +1,70 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <section class="interval" style="margin-bottom:80px; ">
+            <ul class="inter-left">
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>分类</em></label>
+                    <select class="sele" ng-model="notice.classify">
+                        <option value="">请选择分类</option>
+                        <option ng-repeat="(key,value) in allClass track by key">{{ value }}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>标题</em></label>
+                    <input type="text" ng-model="notice.title" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>作者</em></label>
+                    <input type="text" ng-model="notice.author" ng-verify>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>是否必读</em></label>
+                    <select class="sele" ng-model="notice.required">
+                        <option value="">请选择是否必读</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+            </ul>
+            <ul class="inter-right">
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>是否发送邮件</em></label>
+                    <select class="sele" ng-model="notice.send">
+                        <option value="">是否发送邮件</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li class="sum-select" ng-show="notice.send">
+                    <label><i><img src="/images/mandatory.png"></i><em>发送公邮</em></label>
+                    <div class="select">
+                        <p class="select-text">
+                            <span ng-repeat="work in condis">{{work}}, </span>
+                        </p>
+                        <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="allMails" selected-model="condis" extra-settings="stringSettings"></div>
+                    </div>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>是否全部发送</em></label>
+                    <select class="sele" ng-model="notice.all">
+                        <option value="">请选择是否全部发送</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li class="required"  ng-hide="notice.all">
+                    <label ><i><img src="/images/mandatory.png"></i><em>发布对象</em></label>
+                    <div class="select">
+                        <p class="select-text">
+                            <span ng-repeat="work in users">{{work}}, </span>
+                        </p>
+                        <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="allUser" selected-model="users" extra-settings="stringSettings"></div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    <div ueditor id="Container"  config="{{config}}"></div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="noticeEditFun()">提交</button>
+    </p>
+</div>

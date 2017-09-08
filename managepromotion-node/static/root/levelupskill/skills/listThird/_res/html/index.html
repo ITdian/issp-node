@@ -1,0 +1,78 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>转正后间隔时间</span>
+            <span>各档次晋升间隔时间（月）</span>
+            <span>技能职衔分数</span>
+            <span>转换额度</span>
+            <span>标准</span>
+            <span>条件</span>
+            <span>补助额度（元）</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in skilLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.intervalAfterTransfer}}</p>
+                    <p mod>{{lists.gradeAfterTime}}</p>
+                    <p mod>{{lists.technicalRank}}</p>
+                    <p mod>{{lists.convertLine}}</p>
+                    <p mod>{{lists.standard}}</p>
+                    <p mod>{{lists.conditions}}</p>
+                    <p mod>{{lists.subsidiesAmount}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>职衔补助额度</span>
+                                <span>补助额度合计</span>
+                                <span>每次晋升增长幅度</span>
+                                
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.quotaJobTitle}}</span>
+                                <span mod>{{lists.totalAllowance}}</span>
+                                <span mod>{{lists.growth}}</span>
+                                
+                            </p>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+

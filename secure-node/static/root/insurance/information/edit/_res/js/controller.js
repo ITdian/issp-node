@@ -11,7 +11,36 @@ app.controller('inforEditCtrl', function($scope, inforSer,$stateParams,$state,to
         }
 
     });
-
+    inforSer.getName().then(function(response){
+        if(response.data.code == 0){
+            $scope.names= response.data.data;
+            // $scope.names=[{'username':'111'},{'username':'222'}]
+        }
+    });
+    inforSer.getEmployeeNum().then(function(response){
+        if(response.data.code == 0){
+            $scope.employeeNums= response.data.data;
+        }
+    });
+    //根据姓名获取数据
+    $scope.changSelect = function(){
+        var obj={name:$scope.infor.name};
+        inforSer.getIdCart(obj).then(function(response){
+            if(response.data.code == 0){
+                $scope.idCarts= response.data.data;
+            }
+        });
+        inforSer.getBorn(obj).then(function(response){
+            if(response.data.code == 0){
+                $scope.borns= response.data.data;
+            }
+        });
+        inforSer.getTel(obj).then(function(response){
+            if(response.data.code == 0){
+                $scope.tels= response.data.data;
+            }
+        });
+    };
     //编辑点击提交
     $scope.webEditFun = function(){
         var vm = $scope;

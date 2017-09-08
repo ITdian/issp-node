@@ -10,6 +10,7 @@ app.controller('gradelevelListCtrl',function($scope,gradelevelSer,toastr,$stateP
         }
     }
     function activatePage(page) {
+        if($scope.gradelevelLists)return;
         var listData = {
             page:page || 1
         };

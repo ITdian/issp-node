@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"festivaltimeMenuCtrl"
             }
         }
+    }).state("root.legalholiday.holiday.festivaltime.list[12]",{
+        url:"/list[12]?id=&page=&name=",
+        views:{
+            "content@root.legalholiday.holiday.festivaltime":{
+                templateUrl : "root/legalholiday/holiday/festivaltime/list/_res/html/index.html",
+                controller:'festivaltimeListCtrl'
+            }
+        }
     }).state("root.legalholiday.holiday.festivaltime.add[12]",{
         url:"/add[12]",
         views:{

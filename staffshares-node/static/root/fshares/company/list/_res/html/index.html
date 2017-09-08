@@ -1,0 +1,39 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>发行总股数</span>
+            <span>发行总额</span>
+            <span>持股人数</span>
+            <span>总持股数</span>
+            <span>持有总额</span>
+            <span>总收益额</span>
+            <span>占总发行数量比</span>
+        </li>
+        <li class="list-all" ng-repeat="lists in companyLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.totalNum}}</p>
+                    <p mod>{{lists.issuance}}</p>
+                    <p mod>{{lists.shareholderNum}}</p>
+                    <p mod>{{lists.num}}</p>
+                    <p mod>{{lists.totalEquity}}</p>
+                    <p mod>{{lists.totalEarnings}}</p>
+                    <p mod>{{lists.ratio}}</p>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <!-- <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer> -->
+</div>
+<!-- <div ui-view="modal"></div> -->

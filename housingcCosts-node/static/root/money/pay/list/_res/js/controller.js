@@ -43,6 +43,7 @@ app.controller('paingListCtrl',function($scope,paingSer,toastr,$stateParams,$sta
         $scope.isView = newIs;
     });
     function activatePage(page) {
+        if($scope.openLists)return;
         var listData = {
             page:page || 1
         };

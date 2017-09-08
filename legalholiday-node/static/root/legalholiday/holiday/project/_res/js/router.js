@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"projectMenuCtrl"
             }
         }
+    }).state("root.legalholiday.holiday.project.list[12]",{
+        url:"/list[12]?id=&page=&name=",
+        views:{
+            "content@root.legalholiday.holiday.project":{
+                templateUrl : "root/legalholiday/holiday/project/list/_res/html/index.html",
+                controller:'projectListCtrl'
+            }
+        }
     }).state("root.legalholiday.holiday.project.add[12]",{
         url:"/add[12]",
         views:{
@@ -28,7 +36,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.legalholiday.holiday.project.checkTime[12]",{
-        url:"/checkTime[12]?id=",
+        url:"/checkTime[12]?id=&page=&num=",
         views:{
             "content@root.legalholiday.holiday.project":{
                 templateUrl : "root/legalholiday/holiday/project/checkTime/_res/html/index.html",
@@ -36,7 +44,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.legalholiday.holiday.project.checkPro[12]",{
-        url:"/checkPro[12]?id=",
+        url:"/checkPro[12]?id=&page",
         views:{
             "content@root.legalholiday.holiday.project":{
                 templateUrl : "root/legalholiday/holiday/project/checkPro/_res/html/index.html",
@@ -44,7 +52,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.legalholiday.holiday.project.checkPeo[12]",{
-        url:"/checkPeo[12]?id=",
+        url:"/checkPeo[12]?id=&page",
         views:{
             "content@root.legalholiday.holiday.project":{
                 templateUrl : "root/legalholiday/holiday/project/checkPeo/_res/html/index.html",
@@ -52,7 +60,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.legalholiday.holiday.project.checkGift[12]",{
-        url:"/checkGift[12]?id=",
+        url:"/checkGift[12]?id=&page",
         views:{
             "content@root.legalholiday.holiday.project":{
                 templateUrl : "root/legalholiday/holiday/project/checkGift/_res/html/index.html",
@@ -60,7 +68,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.legalholiday.holiday.project.checkNotice[12]",{
-        url:"/checkNotice[12]?id=",
+        url:"/checkNotice[12]?id=&page",
         views:{
             "content@root.legalholiday.holiday.project":{
                 templateUrl : "root/legalholiday/holiday/project/checkNotice/_res/html/index.html",

@@ -35,5 +35,21 @@ app.config(function($provide, $stateProvider){
                 controller:'waitEditCtrl'
             }
         }
+    }).state("root.money.wait.summaryArea[12]",{
+        url:"/summaryArea[12]",
+        views:{
+            "content@root.money.wait":{
+                templateUrl : "root/money/wait/summaryArea/_res/html/index.html",
+                controller:'summaryAreaCtrl'
+            }
+        }
+    }).state("root.money.wait.summaryProject[12]",{
+        url:"/summaryProject[12]",
+        views:{
+            "content@root.money.wait":{
+                templateUrl : "root/money/wait/summaryProject/_res/html/index.html",
+                controller:'summaryProjectCtrl'
+            }
+        }
     })
 });

@@ -1,0 +1,139 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>项目名称</span>
+            <span>申请人</span>
+            <span>设备名称</span>
+            <span>物资编号</span>
+            <span>经手人</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in repairLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.area}}</p>
+                    <p mod>{{::lists.projectGroup}}</p>
+                    <p mod>{{::lists.projectName}}</p>
+                    <p mod>{{::lists.applicant}}</p>
+                    <p mod>{{::lists.deviceName}}</p>
+                    <p mod>{{::lists.materialCoding}}</p>
+                    <p mod>{{::lists.handler}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>设备负责人</span>
+                                <span>设备出现的问题</span>
+                                <span>备注</span>
+                                <span>物资状态</span>
+                                <span>保修期限(月)</span>
+                                <span>是否在保修期</span>
+                                <span>保修联系人</span>
+                                <span>保修联系电话</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.devicePrincipal}}</span>
+                                <span mod>{{::lists.deviceIssue}}</span>
+                                <span mod>{{::lists.comment}}</span>
+                                <span mod>{{::lists.materialState | addCover}}</span>
+                                <span mod>{{::lists.termOfService}}</span>
+                                <span mod>{{::lists.whetherWarranty | addCover}}</span>
+                                <span mod>{{::lists.warrantyContact}}</span>
+                                <span mod>{{::lists.warrantyContactPhone}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>购买网址/店铺</span>
+                                <span>购买途径</span>
+                                <span>维修途径</span>
+                                <span>检测结果</span>
+                                <span>是否可维修</span>
+                                <span>维修后使用期限</span>
+                                <span>维修价格</span>
+                                <span>预计维修好时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.buyAddress}}</span>
+                                <span mod>{{::lists.purchaseWay}}</span>
+                                <span mod>{{::lists.repairWay}}</span>
+                                <span mod>{{::lists.detectResult}}</span>
+                                <span mod>{{::lists.whetherRepair|whetherCover}}</span>
+                                <span mod>{{::lists.repairDeadline}}</span>
+                                <span mod>{{::lists.repairPrice}}</span>
+                                <span mod>{{::lists.planOverRepairTime}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>预计借款时间</span>
+                                <span>福利模块负责人</span>
+                                <span>福利模块负责人审核状态</span>
+                                <span>项目经理</span>
+                                <span>项目经理审核状态</span>
+                                <span>厂家收款方式</span>
+                                <span>开户名称</span>
+                                <span>开户账号</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.planLoanTime}}</span>
+                                <span mod>{{::lists.welfareModule}}</span>
+                                <span mod>{{::lists.welfareAuditState | statusCover}}</span>
+                                <span mod>{{::lists.pm}}</span>
+                                <span mod>{{::lists.pmAuditState | stateCover}}</span>
+                                <span mod>{{::lists.venderReceiptMode}}</span>
+                                <span mod>{{::lists.accountName}}</span>
+                                <span mod>{{::lists.accountNumber}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>开户行</span>
+                                <span>是否付款</span>
+                             </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.bankOfDeposit}}</span>
+                                <span mod>{{::lists.whetherPayment|pay}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

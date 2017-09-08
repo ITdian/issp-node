@@ -1,0 +1,14 @@
+<div class="lay-box" ng-show="iw">
+    <div class="lay-title">{{ theme }}</div>
+    <div class="lay-body" style="width:{{width}};height:{{height}}">
+        <ul class="lay-body-title">
+            <li ng-repeat="(key,value) in lists track by key">{{value}}</li>
+        </ul>
+        <ul class="lay-body-list">
+            <li ng-repeat="list in data.lists">
+                <span ng-repeat="(key,value) in list track by key">{{value}}</span>
+            </li>
+        </ul>
+    </div>
+    <span class="lay-close"><a ng-click="showFn(iw)">X</a> </span>
+</div>

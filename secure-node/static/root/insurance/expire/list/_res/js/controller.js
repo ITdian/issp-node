@@ -40,6 +40,7 @@ app.controller('expireListCtrl',function($scope,expireSer,toastr,$stateParams,$s
         });
     };
     function activatePage(page) {
+        if($scope.expireLists)return;
         var listData = {
             page:page || 1
         };

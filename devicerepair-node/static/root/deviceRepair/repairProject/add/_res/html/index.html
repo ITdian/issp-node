@@ -1,0 +1,159 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="repair.area">
+                            <option value="">请选择</option>
+                            <option ng-repeat="Area in AllArea[1]">{{Area}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="repair.area">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="repair.projectGroup">
+                            <option value="">请选择</option>
+                            <option  ng-repeat="AllO in AllOrage">{{AllO}}</option>
+                          </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="repair.projectGroup">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="repair.projectName">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申请人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="repair.applicant">
+                            <option value="">请选择</option>
+                            <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="repair.applicant">
+                    </div>
+                </li>
+                <li class="required mod">
+                    <label><i><img src="/images/mandatory.png"></i><em>物资编号</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="repair.materialCoding">
+                            <option value="">请选择</option>
+                            <option ng-repeat="number in AllNum">{{number}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="repair.materialCoding">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>经手人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="repair.handler">
+                            <option value="">请选择</option>
+                            <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="repair.handler">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设备负责人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="repair.devicePrincipal">
+                            <option value="">请选择</option>
+                            <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="repair.devicePrincipal" >
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设备出现的问题</em></label>
+                    <input type="text" ng-verify="{}" ng-model="repair.deviceIssue">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>保修期限(月)</em></label>
+                    <input type="number" name="points" min="0" ng-model="repair.termOfService">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否在保修期</em></label>
+                    <select class="sele" ng-model="repair.whetherWarranty" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>福利模块负责人</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="repair.welfareModule">
+                            <option value="">请选择</option>
+                            <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="repair.welfareModule">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目经理</em></label>
+                    <div class="sele side">
+                        <select class="sele" ng-model="repair.pm">
+                            <option value="">请选择</option>
+                            <option  ng-repeat="AllGet in  AllGetPerson">{{AllGet}}</option>
+                        </select>
+                        <input type="text"  class="inputDom" ng-verify="{}" ng-model="repair.pm">
+                    </div>
+                </li>
+                <li>
+                    <label><em>保修联系人</em></label>
+                    <input type="text"  ng-model="repair.warrantyContact">
+                </li>
+                <li>
+                    <label><em>物资状态</em></label>
+                    <select class="sele" ng-model="repair.materialState">
+                        <option value="">请选择</option>
+                        <option value="WAITING_REPAIR">待维修</option>
+                        <option value="NORMALITY">正常</option>
+                        <option value="SCRAPED">已报废</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>设备名称</em></label>
+                    <input type="text"  ng-model="repair.deviceName">
+                </li>
+                <li>
+                    <label><em>保修联系电话</em></label>
+                    <input type="text" ng-model="repair.warrantyContactPhone">
+                </li>
+                <li>
+                    <label><em>购买途径</em></label>
+                    <input type="text" ng-model="repair.purchaseWay">
+                </li>
+                <li>
+                    <label><em>检测结果</em></label>
+                    <input type="text" ng-model="repair.detectResult">
+                </li>
+                <li>
+                    <label><em>购买网址/店铺</em></label>
+                    <input type="text" ng-model="repair.buyAddress">
+                </li>
+                <li>
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="repair.comment">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="repairAddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

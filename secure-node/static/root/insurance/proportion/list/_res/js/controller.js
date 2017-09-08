@@ -40,6 +40,7 @@ app.controller('protionListCtrl',function($scope,protionSer,toastr,$stateParams,
         });
     };
     function activatePage(page) {
+        if($scope.protionLists)return;
         var listData = {
             page:page || 1
         };

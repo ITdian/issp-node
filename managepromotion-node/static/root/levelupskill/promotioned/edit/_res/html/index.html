@@ -1,0 +1,66 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>部门</em></label>
+                    <input type="text" ng-verify="{}" ng-model="pro.department">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <input type="text" ng-verify="{}" ng-model="pro.projectGroup">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
+                    <input type="text" ng-verify="{}" ng-model="pro.name">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <input type="text" ng-verify="{}" ng-model="pro.jobs">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>渠道</em></label>
+                    <input type="text" ng-verify="{}" ng-model="pro.channel">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image times" ng-model="pro.times">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>晋升前</em></label>
+                    <input type="text" ng-verify="{}" ng-model="pro.promotionBefore">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>晋升后</em></label>
+                    <input type="text" ng-verify="{}" ng-model="pro.promotionAfter">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总幅度</em></label>
+                    <input type="text" ng-verify="{}" ng-model="pro.totalRange">
+                </li>
+                
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>状态</em></label>
+                    <select class="sele" ng-model="pro.status" ng-init="pro.status='THAW'">
+                        <option value="审核中">审核中</option>
+                        <option value="通过">通过</option>
+                        <option value="不通过">不通过</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="proEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

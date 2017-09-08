@@ -1,0 +1,105 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>部门/项目组</span>
+            <span>岗位</span>
+            <span>姓名</span>
+            <span>技能定位-专业</span>
+            <span>主项/小项</span>
+            <span>申请考试/晋升时间</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in promoLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.department}}</p>
+                    <p mod>{{lists.jobs}}</p>
+                    <p mod>{{lists.name}}</p>
+                    <p mod>{{lists.major}}</p>
+                    <p mod>{{lists.subject | cover}}</p>
+                    <p mod>{{lists.applyTest}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more"  ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>转正技能等级</span>
+                                <span>转正时间</span>
+                                <span>当前技能等级</span>
+                                <span>获取时间</span>
+                                <span>已晋升次数</span>
+                                <span>本次晋升等级</span>
+                                <span>是否达到课时完成量</span>
+                                <span>技能水平等级考试成绩</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.transferSkillLevel}}</span>
+                                <span mod>{{lists.positiveTime}}</span>
+                                <span mod>{{lists.currentSkillLevel}}</span>
+                                <span mod>{{lists.acquisitionTime}}</span>
+                                <span mod>{{lists.promotedNumber}}</span>
+                                <span mod>{{lists.promotionLevel}}</span>
+                                <span mod>{{lists.classCompletion | cov}}</span>
+                                <span mod>{{lists.skillLevelScore}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>阶段</span>
+                                <span>模块负责人审核意见</span>
+                                <span>运营商务部预算模块审核意见</span>
+                                <span>项目经理审核意见</span>
+                                <span>综合资源部规划模块审核意见</span>
+                                <span>总经办审核意见</span>
+                                <span>审核状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.phase}}</span>
+                                <span mod>{{lists.headOpinion}}</span>
+                                <span mod>{{lists.budgetOpinion}}</span>
+                                <span mod>{{lists.projectManagerOpinion}}</span>
+                                <span mod>{{lists.planOpinion}}</span>
+                                <span mod>{{lists.managerOpinion}}</span>
+                                <span mod>{{lists.auditStatus | cover}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+

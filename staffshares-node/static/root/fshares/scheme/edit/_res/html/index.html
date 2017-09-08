@@ -1,0 +1,104 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>股票种类</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="sch.type" class="sele">
+                            <option value="原始股">原始股</option>
+                            <option value="绩效股">绩效股</option>
+                            <option value="流通股">流通股</option>
+                        </select> 
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="sch.type" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>方案名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="sch.name">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发行目的</em></label>
+                    <input type="text" ng-verify="{}" ng-model="sch.aim">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总资本</em></label>
+                    <input type="number" ng-verify="{}" ng-model="sch.totalCapital">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总股本</em></label>
+                    <input type="number" ng-verify="{}" ng-model="sch.totalEquity">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>票面价值</em></label>
+                    <input type="number" ng-verify="{}" ng-model="sch.facevalue">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计划筹资额</em></label>
+                    <input type="number" ng-verify="{}" ng-model="sch.planCapital">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发行人</em></label>
+                    <input type="text" ng-verify="{}" ng-model="sch.publisher">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发行性质</em></label>
+                    <input type="text" ng-verify="{}" ng-model="sch.issue">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发行比例</em></label>
+                    <input type="number" ng-verify="{}" ng-model="sch.proportion">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发行数量</em></label>
+                    <input type="number" ng-verify="{}" ng-model="sch.number">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发行价格</em></label>
+                    <input type="number" ng-verify="{}" ng-model="sch.price">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发行对象</em></label>
+                    <input type="text" ng-verify="{}" ng-model="sch.object">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>发行方式</em></label>
+                    <input type="text" ng-verify="{}" ng-model="sch.mode">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>发行时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time" ng-model="sch.time">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>出售方式</em></label>
+                    <input type="text" ng-verify="{}" ng-model="sch.method">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申购上下限标准</em></label>
+                    <input type="text" ng-verify="{}" ng-model="sch.standards">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>分红核算时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="accountingTime" ng-model="sch.accountingTime">
+                </li>
+                <li class="required">
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="sch.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="schEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

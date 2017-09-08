@@ -40,6 +40,7 @@ app.controller('inforListCtrl',function($scope,inforSer,toastr,$stateParams,$sta
         });
     };
     function activatePage(page) {
+        if($scope.inforLists)return;
         var listData = {
             page:page || 1
         };

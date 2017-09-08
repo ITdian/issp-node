@@ -85,7 +85,7 @@ module.exports = function(){
         var options = {
             method : 'PUT',
             timeout : 3000,
-            uri : config()['rurl'] + `/gradelevel/v1/edit/${argvs.id}`,
+            uri : config()['rurl'] + `/gradelevel/v1/edit`,
             form:argvs,
             headers:{
                 userToken:argvs.userToken
@@ -244,7 +244,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + `/leveldesign/v1/promotionapply/${argvs.id}`,
+            uri : config()['rurl'] + `/leveldesign/v1/leveldesign/${argvs.id}`,
             headers:{
                 userToken:argvs.userToken
             }
@@ -317,7 +317,7 @@ module.exports = function(){
         var options = {
             method : 'PUT',
             timeout : 3000,
-            uri : config()['rurl'] + `/promotionapply/v1/edit/${argvs.id}`,
+            uri : config()['rurl'] + `/promotionapply/v1/edit`,
             form:argvs,
             headers:{
                 userToken:argvs.userToken
@@ -330,7 +330,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + `/promotionapply/v1/levelapply/${argvs.id}`,
+            uri : config()['rurl'] + `/promotionapply/v1/promotionapply/${argvs.id}`,
             headers:{
                 userToken:argvs.userToken
             }

@@ -1,0 +1,64 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.project">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>指标类别</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.type">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>指标名称</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.name">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>指标描述</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.description">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>计分方式</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.way">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>参考目标值</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.target">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>获取数据的数据源字段编号</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.serialNumber">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>获取数据的数据源字段</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.field">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>数据源字段路径</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.route">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>系统或人工</em></label>
+                    <select class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName yon1" ng-model="difference">
+                        <option value="true">系统</option>
+                        <option value="false">人工</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="bonusAddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

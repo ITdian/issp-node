@@ -1,0 +1,75 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+
+                <li class="required" style="display: none">
+                    <label><i><img src="/images/mandatory.png"></i><em>id</em></label>
+                    <input type="text" ng-model="welfareId.id">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>维修途径</em></label>
+                    <select class="sele" ng-model="welfareId.repairWay" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="维修站">维修站</option>
+                        <option value="厂家维修">厂家维修</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>检测结果</em></label>
+                    <input type="text" ng-verify="{}" ng-model="welfareId.detectResult">
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>是否可维修</em></label>
+                    <select class="sele" ng-model="welfareId.whetherRepair" ng-verify="option:0" ng-options="item.value as item.name for item in welfareAudit">
+                        <option value="">请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label ><i><img src="/images/mandatory.png"></i><em>维修后使用期限</em></label>
+                    <input type="text" ng-verify="{}" ng-model="welfareId.repairDeadline">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>维修价格</em></label>
+                    <input type="number" step="0.01" min="0" ng-verify="{}" ng-model="welfareId.repairPrice">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>预计维修好时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="date-icon overTime" ng-model="welfareId.planOverRepairTime" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>预计借款时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="date-icon planTime" ng-model="welfareId.planLoanTime" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>福利模块负责人审核状态</em></label>
+                    <select class="sele"  ng-model="welfareId.welfareAuditState" ng-verify="option:0">
+                        <option value="">请选择</option>
+                        <option value="AUDITED">已审核</option>
+                        <option value="UNAUDITED">未审核</option>
+                        <option value="DENY">审核不过</option>
+                    </select>
+                </li>
+                <li>
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="welfareId.deviceIssue">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="repairWelfareFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

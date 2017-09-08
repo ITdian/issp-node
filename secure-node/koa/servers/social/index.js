@@ -525,12 +525,12 @@ module.exports = function(){
         };
         return request(options);
     };
-    //获取网址
-    this.increAgoName = function(argvs){
+    //获取公司名称
+    this.getCompany = function(argvs){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + `/biddingwebinfo/v1/getWebInfo${urlEncode(argvs,true)}`,
+            uri : config()['rurl'] + `/beforeadd/v1/firmNames${urlEncode(argvs,true)}`,
             headers:{
                 userToken:argvs.userToken
             }
@@ -1292,6 +1292,116 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + '/addemployee/v1/setButtonPermission',//2017-06-12
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //----------------------------------------
+    //获取姓名
+    this.getName = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/findUser${urlEncode(argvs,true)}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取员工编号
+    this.getEmployeeNum = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/findUser${urlEncode(argvs,true)}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取地区
+    this.getCity = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/findArea${urlEncode(argvs,true)}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取项目组
+    this.getTeam = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/findDepart${urlEncode(argvs,true)}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取岗位
+    this.getJob = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/findPosition${urlEncode(argvs,true)}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取岗位层级
+    this.getJobLevel = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/findPosition${urlEncode(argvs,true)}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取身份证号码
+    this.getIdCart = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/userInfo/${argvs.name}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+
+    };
+    //获取身份证籍贯
+    this.getBorn = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/userInfo/${argvs.name}`,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取联系方式
+    this.getTel = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/addemployee/v1/userInfo/${argvs.name}`,
             headers:{
                 userToken:argvs.userToken
             }

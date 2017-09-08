@@ -92,7 +92,7 @@ app.factory('ssuiSer',function ($http) {
     }
     //功能导航权限
     function ssuiGuide(data) {
-         return $http.get('/guidePermission/guide/'+data);
+         return $http.get('/guidePermission1/guide/'+data);
     }
    
 });

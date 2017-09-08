@@ -1,0 +1,119 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>项目名称</span>
+            <span>住宿地址</span>
+            <span>员工姓名</span>
+            <span>员工编号</span>
+            <span>住宿开始时间</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in openLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.projectGroup}}</p>
+                    <p mod>{{lists.projectName}}</p>
+                    <p mod>{{lists.address}}</p>
+                    <p mod>{{lists.name}}</p>
+                    <p mod>{{lists.num}}</p>
+                    <p mod>{{lists.stayStartTime}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>住宿结束时间</span>
+                                <span>住宿天数</span>
+                                <span>房租公司缴纳</span>
+                                <span>房租员工缴纳</span>
+                                <span>当月应缴水费总额</span>
+                                <span>水费公司缴纳</span>
+                                <span>水费员工缴纳</span>
+                                <span>当月应缴电费总额</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.stayEndTime}}</span>
+                                <span mod>{{lists.stayDay}}</span>
+                                <span mod>{{lists.rentCompanyPay}}</span>
+                                <span mod>{{lists.rentStaffPay}}</span>
+                                <span mod>{{lists.waterAmount}}</span>
+                                <span mod>{{lists.waterCompanyPay}}</span>
+                                <span mod>{{lists.waterStaffPay}}</span>
+                                <span mod>{{lists.energyAmount}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>电费公司缴纳</span>
+                                <span>电费员工缴纳</span>
+                                <span>管道燃气费充值额度</span>
+                                <span>燃气费公司缴纳</span>
+                                <span>燃气费员工缴纳</span>
+                                <span>员工应缴金额汇总</span>
+                                <span>员工核实</span>
+                                <span>综合资源部核实情况</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.energyCompanyPay}}</span>
+                                <span mod>{{lists.energyStaffPay}}</span>
+                                <span mod>{{lists.gasRechargeLines}}</span>
+                                <span mod>{{lists.gasCompanyPay}}</span>
+                                <span mod>{{lists.gasStaffPay}}</span>
+                                <span mod>{{lists.staffPayCollect}}</span>
+                                <span mod>{{lists.staffVerify | cover}}</span>
+                                <span mod>{{lists.comprehensiveVerifySituation | cover}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>扣款情况</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.deductionSituation}}</span>
+                                <span mod>{{lists.remark}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

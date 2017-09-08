@@ -1,0 +1,41 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>奖励时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="date-icon awardTime" ng-model="reqEdit.awardTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否获得奖励 </em></label>
+                    <select class="sele" ng-model="reqEdit.getAward">
+                        <option >请选择</option>
+                        <option value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+                </li>
+                <li style="display:none">
+                    <label><i><img src="/images/mandatory.png"></i><em>id</em></label>
+                    <input type="text" ng-model="reqEdit.id">
+                </li>
+                <li style="display:none">
+                    <label><i><img src="/images/mandatory.png"></i><em>推荐信息的id</em></label>
+                    <input type="text" ng-model="reqEdit.awardInfoId">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="awardinfoEdit()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

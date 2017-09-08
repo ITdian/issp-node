@@ -1,0 +1,14 @@
+<ul class="list">
+    <li ng-click="summaryDay()" ng-class="{'current':menuClass=='summaryDayMenu'}" ui-sref=".summaryDay[12]">
+        <a href="javascript:void(0)" title="汇总" class="same-three">日汇总</a>
+    </li>
+    <li ng-click="summaryWeek()" ng-class="{'current':menuClass=='summaryWeekMenu'}" ui-sref=".summaryWeek[12]">
+        <a href="javascript:void(0)" title="奖励处罚明细汇总" class="same-three">周汇总</a>
+    </li>
+    <li ng-click="summaryMonth()" ng-class="{'current':menuClass=='summaryMonthMenu'}" ui-sref=".summaryMonth[12]">
+        <a href="javascript:void(0)" title="奖罚人数汇总" class="same-three">月汇总</a>
+    </li>
+    <li ng-click="summaryYear()" ng-class="{'current':menuClass=='summaryYearMenu'}" ui-sref=".summaryYear[12]">
+        <a href="javascript:void(0)" title="奖罚分数汇总" class="same-three">年汇总</a>
+    </li>
+</ul>

@@ -1,0 +1,35 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核状态</em></label>
+                    <select class="sele" ng-model="sch.status">
+                        <option value="SUBMIT">已提交待审核</option>
+                        <option value="EXAMINE">审核通过待发行</option>
+                        <option value="DELETE">删除</option>
+                        <option value="NOEXAMINE">审核不通过</option>
+                        <option value="ISSUED">已发行</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>审核意见</em></label>
+                    <input type="text" ng-model="sch.opinion">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="schEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

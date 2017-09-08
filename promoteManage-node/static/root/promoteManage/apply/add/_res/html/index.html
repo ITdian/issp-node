@@ -27,10 +27,13 @@
                 </li>
                 <li class="required">
                     <label ><i><img src="/images/mandatory.png"></i><em>员工编号</em></label>
-                    <select class="sele" ng-model="apply.employeeId">
-                        <option value="">请选择员工编号</option>
-                        <option ng-repeat="(key,value) in allNum track by key">{{ value }}</option>
-                    </select>
+                    <div class="sele area side">
+                        <select class="sele" ng-model="apply.employeeId">
+                            <option value="">请选择员工编号</option>
+                            <option ng-repeat="(key,value) in allNum track by key">{{ value }}</option>
+                        </select>
+                        <input type="text" class="inputDom" ng-model="apply.employeeId" ng-verify="{}">
+                    </div>
                 </li>
                 <li class="required">
                     <label ><i><img src="/images/mandatory.png"></i><em>分类</em></label>

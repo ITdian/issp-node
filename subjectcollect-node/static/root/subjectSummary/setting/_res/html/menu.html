@@ -2,7 +2,7 @@
     <li  ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" class="lis">
         <a href="javascript:void(0)" >列表</a>
     </li>
-    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu'}" >
-        <a href="javascript:void(0)"  class="edit">编辑</a>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':editId}" >
+        <a href="javascript:void(0)"  class="edit see">编辑</a>
     </li>
 </ul>

@@ -1,0 +1,100 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>体系</em></label>
+                    <input type="text" ng-verify="{}" ng-model="system">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>行业</em></label>
+                    <input type="text" ng-verify="{}" ng-model="industry">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>业务方向-科目</em></label>
+                    <input type="text" ng-verify="{}" ng-model="subject">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>技能定位-专业</em></label>
+                    <input type="text" ng-verify="{}" ng-model="major">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-click="add()" style="font-size:14px;">技能等级B添加</button>
+    </p>
+    <div class="question">
+        <div class="questionlist" ng-repeat="list in btos">
+            <div class="collect">
+                <div class="collect-select seconds">
+                    <span><i><img src="/images/mandatory.png"></i>技能等级:<input type="text" ng-verify="{}" ng-model="list.skillLevel" class="inputter"></span>
+                    <span><i><img src="/images/mandatory.png"></i>档次:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" ng-verify="{}" ng-model="list.grade" class="inputter"></span>
+
+                    <button class="optionBtn" ng-click="opdd($index)">添加选项</button>
+                </div>
+            </div>
+            <ul class="optionUl">
+                <li ng-repeat="sd in list.skillGradingCTOS">
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>转正后间隔时间</label>
+                        <input ng-verify="{}" ng-model="sd.intervalAfterTransfer" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>各档次晋升间隔时间</label>
+                        <input ng-verify="{}" ng-model="sd.gradeAfterTime" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>技能职衔分数</label>
+                        <input ng-verify="{}" ng-model="sd.technicalRank" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>转换额度</label><br>
+                        <input ng-verify="{}" ng-model="sd.convertLine" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>标准</label><br>
+                        <input ng-verify="{}" ng-model="sd.standard" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>条件</label><br>
+                        <input ng-verify="{}" ng-model="sd.conditions" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>补助额度</label><br>
+                        <input ng-verify="{}" ng-model="sd.subsidiesAmount" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>职衔补助额度</label>
+                        <input ng-verify="{}" ng-model="sd.quotaJobTitle" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>补助额度合计</label>
+                        <input ng-verify="{}" ng-model="sd.totalAllowance" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    <div> 
+                        <label><i><img src="/images/mandatory.png"></i>每次晋升增长幅度</label>
+                        <input ng-verify="{}" ng-model="sd.growth" class="inputter" style="border: 1px solid #1aafea;" type="text">
+                    </div><br>
+                    
+                    <button class="opBtn" ng-click="opel($index)">×</button>
+                </li>
+            </ul>
+            <button class="btn" ng-click="del($index)">×</button>
+        </div>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img
+                src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="skilAddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function () {
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

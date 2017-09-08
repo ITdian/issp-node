@@ -2,7 +2,43 @@ var request = require('request-promise');
 var path = require('path');
 var config = require(path.resolve('plugins/read-config.js'));
 var form = require(path.resolve('plugins/form.js'));
+var urlEncode = require(path.resolve('plugins/urlEncode.js'));
 module.exports = function(){
+    //设置导航权限
+    this.settingNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/holidayprogramme/v1/setButtonPermission',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //导航权限
+    this.siginNav = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/holidayprogramme/v1/sonPermission',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    this.giftPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/giftstandard/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     //列表 节假日礼品标准 
    this.giftList= function(argvs){
         var options = {
@@ -10,7 +46,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/giftstandard/v1/list?limit=10&page=${argvs.page}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -22,7 +58,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + '/giftstandard/v1/count',
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -47,6 +83,9 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/giftstandard/v1/getOneById/${argvs.id}`,
             form : argvs,
+            headers : {
+                userToken : argvs.userToken
+            }
         };
         return request(options);
     };
@@ -75,7 +114,18 @@ module.exports = function(){
         };
         return request(options);
     };
-
+    //节假日时间安排
+    this.festivaltimePermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/companyfestivaltime/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     //列表 节假日时间安排 
    this.festivaltimeList= function(argvs){
         var options = {
@@ -83,7 +133,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/companyfestivaltime/v1/list?limit=10&page=${argvs.page}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -95,7 +145,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + '/companyfestivaltime/v1/count',
             headers : {
-                // token : token
+                 userToken : argvs.userToken
             }
         };
         return request(options);
@@ -120,6 +170,9 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/companyfestivaltime/v1/getOneById/${argvs.id}`,
             form : argvs,
+             headers : {
+                userToken : argvs.userToken
+            }
         };
         return request(options);
     };
@@ -150,13 +203,24 @@ module.exports = function(){
     };
 
     //法定节假日放假方案
+    this.projectPermission = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/holidayprogramme/v1/guidePermission?guideAddrStatus=`+argvs.name,
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     this.projectList= function(argvs){
         var options = {
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + `/holidayprogramme/v1/list?limit=10&page=${argvs.page}`,
-            headers : {
-                // token : token
+             headers : {
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -167,8 +231,8 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + '/holidayprogramme/v1/count',
-            headers : {
-                // token : token
+             headers : {
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -193,6 +257,9 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/holidayprogramme/v1/getOneById/${argvs.id}`,
             form : argvs,
+             headers : {
+                userToken : argvs.userToken
+            }
         };
         return request(options);
     };
@@ -228,7 +295,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + '/companyfestivaltime/v1/listName',
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -239,8 +306,8 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + `/companyfestivaltime/v1/getComDetail?name=${encodeURIComponent(argvs.name)}`,
-            headers : {
-                // token : token
+             headers : {
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -251,8 +318,8 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + `/companyfestivaltime/v1/countByName?name=${encodeURIComponent(argvs.name)}`,
-            headers : {
-                // token : token
+             headers : {
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -263,8 +330,8 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + `/holidayworkplan/v1/getHoliDetail?holidayProgrammeId=${argvs.id}`,
-            headers : {
-                // token : token
+             headers : {
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -276,7 +343,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/holidayworkplan/v1/count?holidayProgrammeId=${argvs.id}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -287,8 +354,8 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + `/arearelationer/v1/getAreaRelationerDetail?holidayProgrammeId=${argvs.id}`,
-            headers : {
-                // token : token
+             headers : {
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -298,8 +365,8 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + `/arearelationer/v1/count?holidayProgrammeId=${argvs.id}`,
-            headers : {
-                // token : token
+             headers : {
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -311,7 +378,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/welfare/v1/getWelfareDetail?holidayProgrammeId=${argvs.id}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -322,7 +389,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/welfare/v1/count?holidayProgrammeId=${argvs.id}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -334,7 +401,7 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/noticething/v1/getNotiDetail?holidayProgrammeId=${argvs.id}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
@@ -345,17 +412,56 @@ module.exports = function(){
             timeout : 3000,
             uri : config()['rurl'] + `/noticething/v1/count?holidayProgrammeId=${argvs.id}`,
             headers : {
-                // token : token
+                userToken : argvs.userToken
             }
         };
         return request(options);
     };
-    this.logout = function(argvs){
+    //设置权限
+    this.listSetting = function(argvs){
         var options = {
-            method : 'POST',
+            method : 'GET',
             timeout : 3000,
-            uri : config()['user'] + `/v1/sign-out/${argvs.token}`,
-            form:argvs
+            uri : config()['rurl'] + `/cuspermission/v1/list?limit=10&page=${argvs.page}`,
+            headers: {
+                 userToken : argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    this.countSetting = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/cuspermission/v1/count'
+        };
+        return request(options);
+    };
+    this.getpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/getOneById/${argvs.id}`
+        };
+        return request(options);
+    };
+    this.getListpermit = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + `/cuspermission/v1/listOperateById/${argvs.id}`
+        };
+        return request(options);
+    };
+    this.editSetting = function(argvs){
+        var options = {
+            method : 'PUT',
+            timeout : 3000,
+            uri : config()['rurl'] + '/cuspermission/v1/edit',
+            form:argvs,
+            headers: {
+                 userToken : argvs.userToken
+            }
         };
         return request(options);
     };

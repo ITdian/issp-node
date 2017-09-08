@@ -1,0 +1,77 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.area">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>部门/项目组</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.department">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>岗位</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.jobs">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.name">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>技能定位-专业</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.major">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>主项/小项</em></label>
+                    <select class="sele subject" ng-model="subject" ng-init="subject='请选择'" ng-verify="option:0">
+                        <option value="请选择" disabled>请选择</option>
+                        <option value="true">是</option>
+                        <option value="false">否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>申请考试/晋升时间</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.applyTest">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>转正技能等级</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.transferSkillLevel">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>转正时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image positiveTime" ng-model="promo.positiveTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>当前技能等级</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.currentSkillLevel">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>获取时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image acquisitionTime" ng-model="promo.acquisitionTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>已晋升次数</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.promotedNumber">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>本次晋升等级</em></label>
+                    <input type="text" ng-verify="{}" ng-model="promo.promotionLevel">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="promoAddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

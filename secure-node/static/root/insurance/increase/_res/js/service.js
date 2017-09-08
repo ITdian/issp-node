@@ -12,7 +12,17 @@ app.factory('increSer',function ($http) {
         //----------------------------------------------
         increHead:increHead,
         increManager:increManager,
-        increBusiness:increBusiness
+        increBusiness:increBusiness,
+        //---------------------------------------
+        getName:getName,
+        getEmployeeNum:getEmployeeNum,
+        getCity:getCity,
+        getTeam:getTeam,
+        getJob:getJob,
+        getJobLevel:getJobLevel,
+        getIdCart:getIdCart,
+        getBorn:getBorn,
+        getTel:getTel
     };
     function increList(data) {
         return $http.get('/increList/list',{
@@ -75,4 +85,78 @@ app.factory('increSer',function ($http) {
     function increBusiness(data){
         return $http.post('/increBusiness/business',data)
     }
+    //------------------------------------------------------
+    //获取姓名
+    function getName(data){
+
+        return $http.get('/getName/name',{
+            params: data
+
+        })
+    }
+    //获取员工编号
+    function getEmployeeNum(data){
+
+        return $http.get('/getEmployeeNum/employeeNum',{
+            params: data
+
+        })
+    }
+    //获取地区
+    function getCity(data){
+
+        return $http.get('/getCity/city',{
+            params: data
+
+        })
+    }
+    //获取项目组
+    function getTeam(data){
+
+        return $http.get('/getTeam/team',{
+            params: data
+
+        })
+    }
+    //获取岗位
+    function getJob(data){
+
+        return $http.get('/getJob/job',{
+            params: data
+
+        })
+    }
+    //获取岗位层级
+    function getJobLevel(data){
+
+        return $http.get('/getJobLevel/jobLevel',{
+            params: data
+
+        })
+    }
+    //获取身份证号码
+    function getIdCart(data){
+
+        return $http.get('/getIdCart/idCart',{
+            params: data
+
+        })
+    }
+    //获取身份证籍贯
+    function getBorn(data){
+
+        return $http.get('/getBorn/born',{
+            params: data
+
+        })
+    }
+    //获取联系方式
+    function getTel(data){
+
+        return $http.get('/getTel/tel',{
+            params: data
+
+        })
+    }
+    
 });

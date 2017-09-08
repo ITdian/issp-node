@@ -11,6 +11,14 @@ app.config(function($provide, $stateProvider){
                 controller:"giftMenuCtrl"
             }
         }
+    }).state("root.legalholiday.holiday.gift.list[12]",{
+        url:"/list[12]?id=&page=&name=",
+        views:{
+            "content@root.legalholiday.holiday.gift":{
+                templateUrl : "root/legalholiday/holiday/gift/list/_res/html/index.html",
+                controller:'giftListCtrl'
+            }
+        }
     }).state("root.legalholiday.holiday.gift.add[12]",{
         url:"/add[12]",
         views:{
@@ -20,7 +28,7 @@ app.config(function($provide, $stateProvider){
             }
         }
     }).state("root.legalholiday.holiday.gift.edit[12]",{
-        url:"/edit[12]?id=",
+        url:"/edit[12]?id=&page=",
         views:{
             "content@root.legalholiday.holiday.gift":{
                 templateUrl : "root/legalholiday/holiday/gift/edit/_res/html/index.html",

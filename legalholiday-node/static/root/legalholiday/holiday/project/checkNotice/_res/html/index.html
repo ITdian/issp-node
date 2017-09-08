@@ -6,8 +6,8 @@
             <span>注意事项名</span>
             <span>描述</span>
         </li>
-        <li class="list-all">
-            <section ng-repeat="list in checkNoticeLists.data" style="display: {{list._delete?'none':'block'}};">
+        <li class="list-all" ng-repeat="list in checkNoticeLists.data" style="display: {{list._delete?'none':'block'}};">
+            <section>
                 <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
                     <p>{{$index+1}}</p>
                     <p class="data-id"></p>
@@ -21,4 +21,3 @@
         <pagination count="project.itemsCount" take="project.take" activate="project.activatePage"></pagination>
     </footer>
 </div>
-<div ui-view="modal"></div>

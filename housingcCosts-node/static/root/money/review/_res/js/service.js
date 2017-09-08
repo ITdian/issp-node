@@ -45,6 +45,6 @@ app.factory('reviewSer',function ($http) {
     }
     //汇总
     function summaryReview(data) {
-        return $http.get('/summaryReview/collect?month='+data)
+        return $http.get('/summaryReview/collect?date='+data)
     }
 });

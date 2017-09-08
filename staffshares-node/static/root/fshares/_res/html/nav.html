@@ -1,0 +1,44 @@
+
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="application" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.fshares.scheme.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="application" ng-class="{'active':navCla== menuInfo.msg}" ui-sref="_root.fshares.center.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="application" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.subscription.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="buyschedule" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.buy.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="sellschedule" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.sold.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="details" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.transact.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="application" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.representative.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name7}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="application" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.case.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name8}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="dividends" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.participation.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name9}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="details" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.detail.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name10}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="application" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.fshares.company.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name11}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.fshares.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name12}}</a>
+        </li>
+    </ul>
+</div>

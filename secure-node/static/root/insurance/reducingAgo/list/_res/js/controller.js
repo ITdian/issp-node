@@ -71,6 +71,7 @@ app.controller('reduAgoListCtrl',function($scope,reduAgoSer,toastr,$stateParams,
     };
 
     function activatePage(page) {
+        if($scope.reduAgoLists)return;
         var listData = {
             page:page || 1
         };

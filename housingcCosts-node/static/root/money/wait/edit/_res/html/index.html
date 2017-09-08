@@ -3,8 +3,16 @@
         <section>
             <ul>
                 <li class="required">
-                    <label><i><img src="/images/mandatory.png"></i><em>缴费时间</em></label>
-                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image time" ng-model="wait.payTime">
+                    <label><i><img src="/images/mandatory.png"></i><em>年份</em></label>
+                    <select ng-model="wait.year" class="sele">
+                        <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
+                    </select> 
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>月份</em></label>
+                    <select ng-model="wait.month" class="sele">
+                        <option ng-repeat="month in months" value="{{month}}">{{month}}</option>
+                    </select> 
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
@@ -20,23 +28,27 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>租金</em></label>
-                    <input type="number" ng-model="wait.rent">
+                    <input type="number" ng-model="wait.rent" ng-change="changSelect()">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>水费</em></label>
-                    <input type="number" ng-model="wait.water">
+                    <input type="number" ng-model="wait.water" ng-change="changSelect()">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>电费</em></label>
-                    <input type="number" ng-model="wait.energy">
+                    <input type="number" ng-model="wait.energy" ng-change="changSelect()">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>管理费</em></label>
-                    <input type="number" ng-model="wait.fee">
+                    <input type="number" ng-model="wait.fee" ng-change="changSelect()">
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>其他费用</em></label>
-                    <input type="number" ng-model="wait.otherFee">
+                    <input type="number" ng-model="wait.otherFee" ng-change="changSelect()">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>合计</em></label>
+                    <input type="number" ng-model="wait.total" disabled>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>房东姓名</em></label>

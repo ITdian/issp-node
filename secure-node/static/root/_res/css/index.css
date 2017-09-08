@@ -780,6 +780,7 @@ body {
 .side{
   padding:0 !important;
   border:0px solid #1aafea !important;
+  position: relative;
 }
 .side select{
   display: flex;
@@ -788,9 +789,10 @@ body {
   margin:0 !important;
 }
 .side input{
+  height:95% !important;
   width:70% !important;
   position:absolute !important;
-  top:3px !important;
+  top:1px !important;
   left:1px !important;
 }
 .import-input{
@@ -1211,6 +1213,12 @@ body {
 
 .right-section .top-content .content .menu .list li a.add {
   border-color: #bfabcf;
+}
+
+.right-section .top-content .content .menu .list li a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .right-section .top-content .content .menu .list li a.same-one {
@@ -1728,10 +1736,10 @@ ul li .data-add{
   margin-left:15px;
 }
 .select .select-text{
-  width:60%;
+  width:54%;
   line-height:40px;
   height:40px;
-  padding-left: 15px;
+  padding-left: 10px;
   position:absolute;
   left:0;
   overflow:hidden;
@@ -1748,7 +1756,7 @@ ul li .data-add{
   z-index:10;
 }
 .select .mymultiselect .btn{
-  width:100px;
+  width:46%;
   position:absolute;
   right:0;
   height:40px;

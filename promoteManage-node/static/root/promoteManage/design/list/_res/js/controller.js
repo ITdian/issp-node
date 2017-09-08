@@ -10,6 +10,7 @@ app.controller('designListCtrl',function($scope,designSer,toastr,$stateParams,$s
         }
     }
     function activatePage(page) {
+        if($scope.designLists)return;
         var listData = {
             page:page || 1
         };

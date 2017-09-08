@@ -40,6 +40,7 @@ app.controller('cardListCtrl',function($scope,cardSer,toastr,$stateParams,$state
         });
     };
     function activatePage(page) {
+        if($scope.cardLists)return;
         var listData = {
             page:page || 1
         };

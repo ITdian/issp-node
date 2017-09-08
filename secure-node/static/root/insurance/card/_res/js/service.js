@@ -7,7 +7,10 @@ app.factory('cardSer',function ($http) {
         cardId:cardId,
         cardCount:cardCount,
         cardDelete:cardDelete,
-        cardPermission:cardPermission
+        cardPermission:cardPermission,
+        getName:getName,
+        getEmployeeNum:getEmployeeNum,
+        getCity:getCity
     };
     function cardList(data) {
         return $http.get('/cardList/list',{
@@ -48,5 +51,29 @@ app.factory('cardSer',function ($http) {
 
         return $http.get('/cardPermission/permission/'+data);
     }
+    //------------------------------------------------------
+    //获取姓名
+    function getName(data){
 
+        return $http.get('/getName/name',{
+            params: data
+
+        })
+    }
+    //获取员工编号
+    function getEmployeeNum(data){
+
+        return $http.get('/getEmployeeNum/employeeNum',{
+            params: data
+
+        })
+    }
+    //获取地区
+    function getCity(data){
+
+        return $http.get('/getCity/city',{
+            params: data
+
+        })
+    }
 });

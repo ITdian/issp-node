@@ -1,0 +1,32 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" class="add">添加</a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see">编辑</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see" >删除</a>
+    </li>
+    <li ng-click="welfare()" ng-class="{'current':menuClass=='welfareMenu','seeParent':idListd}" ng-show="AUDIT" ng-init="menuCheck('AUDIT')">
+        <a href="javascript:void(0)" class="same-three see" title="福利模块审核">福利模块审核</a>
+    </li>
+    <li ng-click="pmAudit()" ng-class="{'current':menuClass=='pmAuditMenu','seeParent':idListd}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)"  class="same-one see" title="福利模块审核">项目经理审核</a>
+    </li>
+    <li ng-click="deviceScrap()" ng-class="{'current':menuClass=='deviceScrapMenu','seeParent':idListd}" ng-show="SCRAP" ng-init="menuCheck('SCRAP')">
+        <a href="javascript:void(0)" class="same-two see" >设备报废</a>
+    </li>
+    <li ng-click="fetchDevice()" ng-class="{'current':menuClass=='fetchDeviceMenu','seeParent':idListd}" ng-show="RETRAEVE" ng-init="menuCheck('RETRAEVE')">
+        <a href="javascript:void(0)" class="same-two see" >取回设备</a>
+    </li>
+    <li ng-click="uploadFile()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idListd}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)"  class="same-one see">上传附件</a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':idListd}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)" class="same-two see" >查看附件</a>
+    </li>
+</ul>

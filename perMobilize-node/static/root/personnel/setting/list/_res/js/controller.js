@@ -15,7 +15,7 @@ app.controller('settingListCtrl',function($scope,settingSer,toastr,$stateParams,
         settingSer.listSetting(pages).then(function(response){
             if(response.data.code==0){
                 $scope.settingLists = response.data.data;
-                $scope.operators = response.data.data.proOperateVO
+                $scope.operators = response.data.data.cusOperateVO
             }else {
                 toastr.error( response.data.msg, '温馨提示');
             }

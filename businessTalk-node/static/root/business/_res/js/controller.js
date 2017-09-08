@@ -52,9 +52,10 @@ app.controller('businessCtrl', function ($scope,$state) {
     //-----------------------------end-----------------------------
     //菜单
     $scope.showsList = [
-        {id:"1",item:"项目承包管理",menuList:[{name:'项目承包洽谈'}],showIs:true},
-        {id:"2",item:"项目外包管理",menuList:[{name2:'项目外包洽谈'}],showIs:true},
-        {id:"3",item:"设置",menuList:[{name3:'设置'}],showIs:true},
+        {id:"1",item:"项目承包管理",menuList:[{name:'项目承包洽谈',msg:'ssui'}],showIs:true},
+        {id:"2",item:"项目外包管理",menuList:[{name2:'项目外包洽谈',msg:'subpackage'}],showIs:true},
+        {id:"3",item:"项目邮件发送",menuList:[{name3:'项目邮件发送',msg:'email'}],showIs:true},
+        {id:"4",item:"设置",menuList:[{name4:'设置',msg:'setting'}],showIs:true},
     ];
       $scope.showMenu = function(obj,event) {
         if(event){
@@ -63,11 +64,11 @@ app.controller('businessCtrl', function ($scope,$state) {
             }else{
                 obj.showIs=event;
                 this.showsList.forEach(function(item){
-                    // if(item.id!=obj.id){
-                    //     item.showIs=!event;
-                    // }else{
-                    //     item.showIs=event;
-                    // }
+                    if(item.id!=obj.id){
+                        item.showIs=!event;
+                    }else{
+                        item.showIs=event;
+                    }
                 });
             }
         }

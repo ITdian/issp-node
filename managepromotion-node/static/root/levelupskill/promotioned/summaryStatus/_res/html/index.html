@@ -1,0 +1,67 @@
+<div class="collect">
+    <div class="collect-select">
+        <span class="status">  
+            状态:          
+                <select ng-model="status">
+                    <option ng-repeat="status in getStatus" value="{{status}}">{{status}}</option>
+                </select>
+        </span>
+        <button ng-click="collect()" class="bbb">汇总</button>
+    </div>
+<!-- --------------------------配套多选的状态选项-------------------------- -->
+    <!-- <div class="sum-select">
+        <label><em>状态</em></label>
+        <div class="select">
+        <p class="select-text" >
+        <span ng-repeat="statu in status">{{statu}}, </span>
+       </p>
+        <div class="mymultiselect" events="getSummary1" ng-dropdown-multiselect="" options="getStatus" selected-model="status" extra-settings="stringSettings1"></div>
+       </div>
+    </div> -->
+<!--     <div class="sum-select">
+        <label><em>名字</em></label>
+        <div class="select">
+        <p class="select-text" >
+        <span ng-repeat="name in names">{{name}}, </span>
+       </p>
+        <div class="mymultiselect" events="getSummary2" ng-dropdown-multiselect="" options="getNames" selected-model="names" extra-settings="stringSettings2"></div>
+       </div>
+    </div>
+    <div class="sum-select">
+        <span>  
+            开始日期:
+            <input type="txt" ng-model="pro.startTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})"class="aaa startTime">
+        </span>
+        <span>  
+            结束日期:
+            <input type="txt" ng-model="pro.endTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})"class="aaa endTime">
+        </span>
+        <button ng-click="collect()" class="bbb">搜索</button>
+    </div> -->
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>部门</span>
+            <span>姓名</span>
+            <span>岗位</span>
+            <span>渠道</span>
+            <span>时间</span>
+            <span>晋升前（不包括各项补助）</span>
+            <span>晋升后（不包括各项补助）</span>
+            <span>幅度</span>
+            <span>总幅度</span>
+            <span>状态</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="Lists in summaryLists">
+            <span>{{Lists.department}}</span>
+            <span>{{Lists.name}}</span>
+            <span>{{Lists.jobs}}</span>
+            <span>{{Lists.channel}}</span>
+            <span>{{Lists.times}}</span>
+            <span>{{Lists.promotionBefore}}</span>
+            <span>{{Lists.promotionAfter}}</span>
+            <span>{{Lists.extent}}</span>
+            <span>{{Lists.totalRange}}</span>
+            <span>{{Lists.status}}</span>
+        </li>
+    </ul>
+</div>

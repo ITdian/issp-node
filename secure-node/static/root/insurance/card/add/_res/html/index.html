@@ -4,11 +4,23 @@
             <ul>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>姓名</em></label>
-                    <input type="text" ng-verify="{}" ng-model="card.name">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="card.name" class="sele">
+                            <option ng-repeat="name in names" value="{{name.username}}">{{name.username}}</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="card.name">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>员工编号</em></label>
-                    <input type="text" ng-verify="{}" ng-model="card.employeeId">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="card.employeeId" class="sele">
+                            <option ng-repeat="employeeNum in employeeNums" value="{{employeeNum.employeeNumber}}">{{employeeNum.employeeNumber}}</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="card.employeeId">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>社保卡管理分类</em></label>
@@ -20,7 +32,13 @@
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
-                    <input type="text" ng-verify="{}" ng-model="card.arrival">
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="card.arrival" class="sele">
+                            <option ng-repeat="city in citys" value="{{city.area}}">{{city.area}}</option>
+                        </select> 
+
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="card.arrival">
+                    </div>
                 </li>
                 <li class="required">
                     <label><i><img src="/images/mandatory.png"></i><em>社保帐户号码</em></label>

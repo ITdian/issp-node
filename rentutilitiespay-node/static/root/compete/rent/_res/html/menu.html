@@ -1,0 +1,26 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="列表" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="添加" class="add">添加<span></span></a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" title="编辑"  class="same-one see">编辑<span></span></a>
+    </li>
+    <li ng-click="financial()" ng-class="{'current':menuClass=='financialMenu','seeParent':idListd}" ng-show="FINANCEAUDIT" ng-init="menuCheck('FINANCEAUDIT')">
+        <a href="javascript:void(0)" title="运营财务部"  class="same-one see">运营财务部<span></span></a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" title="删除" class="same-two see" >删除<span></span></a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idListd}" ng-show="UPLOAD" ng-init="menuCheck('UPLOAD')">
+        <a href="javascript:void(0)" title="上传" class="same-one see" >上传<span></span></a>
+    </li>
+    <li ng-click="view()" ng-class="{'current':menuClass=='viewMenu','seeParent':idListd}" ng-show="SEEFILE" ng-init="menuCheck('SEEFILE')">
+        <a href="javascript:void(0)" title="查看附件" class="same-one see" >查看附件<span></span></a>
+    </li>
+    <li ng-click="summary()" ng-class="{'current':menuClass=='summaryMenu'}" ui-sref=".summary[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" title="汇总" class="same-two" >汇总<span></span></a>
+    </li>
+</ul>

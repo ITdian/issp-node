@@ -1,0 +1,170 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>缴费日期</span>
+            <span>地区</span>
+            <span>项目组</span>
+            <span>项目名称</span>
+            <span>租房地址</span>
+            <span>房东姓名</span>
+            <span>联系方式</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in answerLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.payDate}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.projectGroup}}</p>
+                    <p mod>{{lists.projectName}}</p>
+                    <p mod>{{lists.address}}</p>
+                    <p mod>{{lists.landlord}}</p>
+                    <p mod>{{lists.contact}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>账户名称</span>
+                                <span>银行卡号</span>
+                                <span>银行开户行</span>
+                                <span>房屋交租方式</span>
+                                <span>房屋交租频率</span>
+                                <span>房租缴费日期</span>
+                                <span>水电费缴费频率</span>
+                                <span>水电费缴费日期</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.accountTitle}}</span>
+                                <span mod>{{lists.bankNumber}}</span>
+                                <span mod>{{lists.bankAccount}}</span>
+                                <span mod>{{lists.taxesWay}}</span>
+                                <span mod>{{lists.taxesFequency}}</span>
+                                <span mod>{{lists.rentDate}}</span>
+                                <span mod>{{lists.paymentFrequency}}</span>
+                                <span mod>{{lists.paymentDate}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>房租（元/月）</span>
+                                <span>管理费，卫生费</span>
+                                <span>房租缴纳开始时间</span>
+                                <span>房租缴纳结束时间</span>
+                                <span>房租缴费方</span>
+                                <span>水费初期数目</span>
+                                <span>水费计价金额（元/吨）</span>
+                                <span>水费期末数目</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.rent}}</span>
+                                <span mod>{{lists.fee}}</span>
+                                <span mod>{{lists.rentStartTime}}</span>
+                                <span mod>{{lists.rentEndTime}}</span>
+                                <span mod>{{lists.rentPay}}</span>
+                                <span mod>{{lists.waterBeginNum}}</span>
+                                <span mod>{{lists.waterValuationMoney}}</span>
+                                <span mod>{{lists.waterEndNum}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>用水量</span>
+                                <span>水费缴纳金额</span>
+                                <span>水费缴纳开始时间</span>
+                                <span>水费缴纳结束时间</span>
+                                <span>水费缴费方</span>
+                                <span>电费初期数目</span>
+                                <span>电费计价金额（元/吨）</span>
+                                <span>电费期末数目</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.water}}</span>
+                                <span mod>{{lists.waterPayMoney}}</span>
+                                <span mod>{{lists.waterStartTime}}</span>
+                                <span mod>{{lists.waterEndTime}}</span>
+                                <span mod>{{lists.waterPay}}</span>
+                                <span mod>{{lists.energyBeginNum}}</span>
+                                <span mod>{{lists.energyValuationMoney}}</span>
+                                <span mod>{{lists.energyEndNum}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>用电量</span>
+                                <span>电费缴纳金额</span>
+                                <span>电费缴纳开始时间</span>
+                                <span>电费缴纳结束时间</span>
+                                <span>电费缴费方</span>
+                                <span>管道燃气费充值额度</span>
+                                <span>燃气费缴纳开始时间</span>
+                                <span>燃气费缴纳结束时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.energy}}</span>
+                                <span mod>{{lists.energyPayMoney}}</span>
+                                <span mod>{{lists.energyStartTime}}</span>
+                                <span mod>{{lists.energyEndTime}}</span>
+                                <span mod>{{lists.energyPay}}</span>
+                                <span mod>{{lists.gasRechargeLines}}</span>
+                                <span mod>{{lists.gasStartTime}}</span>
+                                <span mod>{{lists.gasEndTime}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>燃气费缴费方</span>
+                                <span>缴纳金额汇总</span>
+                                <span>运营财务部确认是否缴费</span>
+                                <span>房租收费是否已邮寄到广州</span>
+                                <!-- <span>房租收据附件</span> -->
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.gasPay}}</span>
+                                <span mod>{{lists.payMoneyCollect}}</span>
+                                <span mod>{{lists.operatingPay | cover}}</span>
+                                <span mod>{{lists.rentMoneyMail | cover}}</span>
+                                <!-- <span mod>{{lists.rentReceiptAccessory}}</span> -->
+                                <span mod>{{lists.remark}}</span>
+                            </p>
+                        </li>
+                    </ul>  
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

@@ -87,6 +87,7 @@ app.controller('rollListCtrl',function($scope,rollSer,toastr,$stateParams,$state
         $state.go('root.insurance.roll.list[12]',{removeName:$scope.removeName,employeeId:$scope.employeeId,page:1});
     }
     function activatePage(page) {
+        if($scope.rollLists)return;
         var listData = {
             removeName: $scope.removeName || " ",
             employeeId: $scope.employeeId || " ",

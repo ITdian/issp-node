@@ -1,0 +1,103 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>日期</span>
+            <span>方案代码</span>
+            <span>方案名称</span>
+            <span>发行目的</span>
+            <span>总资本</span>
+            <span>总股本</span>
+            <span>票面价值</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in centeLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.data}}</p>
+                    <p mod>{{lists.code}}</p>
+                    <p mod>{{lists.name}}</p>
+                    <p mod>{{lists.aim}}</p>
+                    <p mod>{{lists.totalCapital}}</p>
+                    <p mod>{{lists.totalEquity}}</p>
+                    <p mod>{{lists.facevalue}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>计划筹资额</span>
+                                <span>发行人</span>
+                                <span>发行性质</span>
+                                <span>发行比例</span>
+                                <span>发行数量</span>
+                                <span>发行价格</span>
+                                <span>发行对象</span>
+                                <span>发行方式</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.planCapital}}</span>
+                                <span mod>{{lists.publisher}}</span>
+                                <span mod>{{lists.issue}}</span>
+                                <span mod>{{lists.proportion}}</span>
+                                <span mod>{{lists.number}}</span>
+                                <span mod>{{lists.price}}</span>
+                                <span mod>{{lists.object}}</span>
+                                <span mod>{{lists.mode}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>发行/出售时间</span>
+                                <span>出售方式</span>
+                                <span>申购上下限标准</span>
+                                <span>分红核算时间</span>
+                                <span>剩余出售股数</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.time}}</span>
+                                <span mod>{{lists.method}}</span>
+                                <span mod>{{lists.standards}}</span>
+                                <span mod>{{lists.accountingTime}}</span>
+                                <span mod>{{lists.sharesNum}}</span>
+                                <span mod>{{lists.remark}}</span>
+                            </p>
+                        </li>
+                    </ul>  
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+

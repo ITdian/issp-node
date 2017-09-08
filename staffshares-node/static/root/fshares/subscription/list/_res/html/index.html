@@ -1,0 +1,103 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>状态</span>
+            <span>申购人</span>
+            <span>申购时间</span>
+            <span>地区</span>
+            <span>项目</span>
+            <span>部门</span>
+            <span>岗位</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in subscripLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.status | cover2}}</p>
+                    <p mod>{{lists.name}}</p>
+                    <p mod>{{lists.time}}</p>
+                    <p mod>{{lists.area}}</p>
+                    <p mod>{{lists.project}}</p>
+                    <p mod>{{lists.department}}</p>
+                    <p mod>{{lists.position}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>在职时间（月数）</span>
+                                <span>出售人</span>
+                                <span>购入股数</span>
+                                <span>应付额</span>
+                                <span>目前处罚记录次数</span>
+                                <span>目前获得奖励次数</span>
+                                <span>各项晋升的次数</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.months}}</span>
+                                <span mod>{{lists.sellName}}</span>
+                                <span mod>{{lists.purchaseNum}}</span>
+                                <span mod>{{lists.money}}</span>
+                                <span mod>{{lists.penalty}}</span>
+                                <span mod>{{lists.reward}}</span>
+                                <span mod>{{lists.promotion}}</span>
+                                <span mod>{{lists.remark}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>财务运营部负责人</span>
+                                <span>审核意见</span>
+                                <span>规划模块</span>
+                                <span>审核意见</span>
+                                <span>总经办</span>
+                                <span>审核意见</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.financial}}</span>
+                                <span mod>{{lists.opinion}}</span>
+                                <span mod>{{lists.planModule}}</span>
+                                <span mod>{{lists.opinion1}}</span>
+                                <span mod>{{lists.manager}}</span>
+                                <span mod>{{lists.opinion2}}</span>
+                            </p>
+                        </li>
+                    </ul>  
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+

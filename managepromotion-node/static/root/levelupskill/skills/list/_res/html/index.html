@@ -1,0 +1,117 @@
+<div class="content-tab list threeBox">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>体系</span>
+            <span>行业</span>
+            <span>业务方向-科目</span>
+            <span>技能定位-专业</span>
+            <span></span>
+       </li>
+        <li class="list-all" ng-repeat="lists in firstLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.system}}</p>
+                    <p mod>{{lists.industry}}</p>
+                    <p mod>{{lists.subject}}</p>
+                    <p mod>{{lists.major}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList1(lists)">技能等级B</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList1?'block':'none'}};">
+                        <li ng-repeat="lists1 in lists.skillGradingBBOS" ng-click='inClick1(lists1.id)'>
+                            <p class="see-parent">
+                                <span>技能等级</span>
+                                <span>档次</span>
+                                <span></span>
+                                
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists1.skillLevel}}</span>
+                                <span mod>{{lists1.grade}}</span>
+                                <span>
+                                    <a href="javascript:void(0)" class="more threeMore" ng-click="moreList2(lists1)">技能等级C</a>
+                                </span>
+                            </p>
+                            <div class="can">
+                                <ul class="can-see" style="display: {{lists1._moreList2?'block':'none'}};">
+                                    <li ng-repeat="lists2 in lists1.skillGradingCBOS" ng-click='inClick2(lists2.id)'>
+                                        <p class="see-parent">
+                                            <span>转正后间隔时间</span>
+                                            <span>各档次晋升间隔时间（月）</span>
+                                            <span>技能职衔分数</span>
+                                            <span>转换额度</span>
+                                            <span>标准</span>
+                                            <span>条件</span>
+                                            <span>补助额度（元）</span>
+                                            <span></span>
+                                        </p>
+                                        <p class="see-children">
+                                            <span mod>{{lists2.intervalAfterTransfer}}</span>
+                                            <span mod>{{lists2.gradeAfterTime}}</span>
+                                            <span mod>{{lists2.technicalRank}}</span>
+                                            <span mod>{{lists2.convertLine}}</span>
+                                            <span mod>{{lists2.standard}}</span>
+                                            <span mod>{{lists2.conditions}}</span>
+                                            <span mod>{{lists2.subsidiesAmount}}</span>
+                                            <span>
+                                                <a href="javascript:void(0)" class="more threeMore" ng-click="moreList3(lists2)" style="background:#042649">查看更多</a>
+                                            </span>
+                                        </p>
+                                        <div class="can">
+                                            <ul class="can-see" style="display: {{lists2._moreList3?'block':'none'}};">
+                                                <li>
+                                                    <p class="see-parent">
+                                                        <span>职衔补助额度</span>
+                                                        <span>补助额度合计</span>
+                                                        <span>每次晋升增长幅度</span>
+                                                    </p>
+                                                    <p class="see-children">
+                                                        <span mod>{{lists2.quotaJobTitle}}</span>
+                                                        <span mod>{{lists2.totalAllowance}}</span>
+                                                        <span mod>{{lists2.growth}}</span>
+                                                    </p>
+                                                </li>
+                                            </ul>   
+                                        </div>
+                                    </li>
+                                </ul>   
+                            </div>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+

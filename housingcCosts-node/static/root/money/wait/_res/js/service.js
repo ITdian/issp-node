@@ -8,7 +8,14 @@ app.factory('waitSer',function ($http) {
         countWait:countWait,
         deleteWait:deleteWait,
         waitPermission:waitPermission,
-        paymentWait:paymentWait
+        paymentWait:paymentWait,
+        getYear:getYear,
+        summaryArea:summaryArea,
+        summaryAreaDetail:summaryAreaDetail,
+        summaryProject:summaryProject,
+        summaryProjectDetail:summaryProjectDetail,
+        areaPaying:areaPaying,
+        projectPaying:projectPaying
     };
     //菜单权限
     function waitPermission(data) {
@@ -33,6 +40,12 @@ app.factory('waitSer',function ($http) {
             params:data
         })
     }
+    //获取年份
+    function getYear(data){
+        return $http.get('/getYear/year',{
+            params:data
+        })
+    }
     //分页总条数
     function countWait(data){
         return $http.get('/countWait/count',{params:data})
@@ -46,5 +59,29 @@ app.factory('waitSer',function ($http) {
     //付款
     function paymentWait(data){
         return $http.post('/paymentWait/payment',data)
+    }
+    //地区汇总
+    function summaryArea(data) {
+        return $http.get('/waitArea/collect',{params:data})
+    }
+    //地区详细汇总
+    function summaryAreaDetail(data) {
+        return $http.get('/waitAreaDetail/collect',{params:data})
+    }
+    //项目汇总
+    function summaryProject(data) {
+        return $http.get('/waitProject/collect',{params:data})
+    }
+    //项目详细汇总
+    function summaryProjectDetail(data) {
+        return $http.get('/waitProjectDetail/collect',{params:data})
+    }
+    //获取所有地区
+    function areaPaying(){
+        return $http.get('/areaWait/areas')
+    }
+    //获取所有项目
+    function projectPaying(){
+        return $http.get('/projectWait/projects')
     }
 });

@@ -110,7 +110,7 @@ module.exports = function(){
                 $self.body = error.error;
                 console.error(error.error);
             }));
-            //------------------------------外包------------------------------
+            //外包
     }).post('/business/outsource/list', function*(){
        var $self = this;
        var pageData = this.request.body;
@@ -340,7 +340,7 @@ module.exports = function(){
         }).get('/ssuiExport/export', function*(){//导出 
         var $self = this;
         var count = $self.request.query;
-        var fileName = '项目承包洽谈.xlsx';
+        var fileName = count.contractInProject+'.xlsx';
         yield (fetch(config()['rurl']+`/contract/v1/export${urlEncode(count,true)}`, {
             method : 'GET',
             headers : {'userToken' : $self.cookies.get('token')}
@@ -359,6 +359,7 @@ module.exports = function(){
         var data = {
             path:count.path
         };
+        console.log(1231234124124214124124)
         yield (fetch(config()['rurl']+`/contract/v1/download${urlEncode(data,true)}`, {
             method : 'GET',
             headers : {'userToken' : $self.cookies.get('token')}
@@ -469,7 +470,7 @@ module.exports = function(){
         }).get('/outExport/export', function*(){
         var $self = this;
         var count = $self.request.query;
-        var fileName = '项目承包洽谈.xlsx';
+        var fileName = count.contractInProject+'.xlsx';
         yield (fetch(config()['rurl']+`/outsource/v1/export${urlEncode(count,true)}`, {
             method : 'GET',
             headers : {'userToken' : $self.cookies.get('token')}
@@ -523,11 +524,150 @@ module.exports = function(){
         }).then(function(data){
             $self.body = data;
         }));
-//----------------------------------------权限----------------------------------------
-    }).get('/guidePermission/guide', function*(){
+    //--------------------邮件发送-------------------------------------
+    }).get('/emailPermission/emailPermission/:guideAddrStatus', function*(){ //邮件汇总菜单权限
         var $self = this;
         var page = {name:$self.params.guideAddrStatus,userToken:$self.cookies.get('token')};
-        yield (server().guidePermission(page)
+        yield (server().emailPermission(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+            }));
+    }).get('/emailList/list', function*(){ //邮件汇总列表
+        var $self = this;
+        var page = $self.request.query;
+        page.userToken = $self.cookies.get('token');
+        yield (server().emailList(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).post('/emailAdd/add', function*(){//邮件汇总添加
+        var $self = this;
+        var addData = $self.request.body;
+        addData.userToken = $self.cookies.get('token');
+        yield (server().emailAdd(addData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).post('/emailEdit/edit', function*(){//邮件汇总编辑
+        var $self = this;
+        var editData = $self.request.body;
+        editData.userToken = $self.cookies.get('token');
+        yield (server().emailEdit(editData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/emailId/getOneById', function*(){//ID查询邮件汇总数据
+        var $self = this;
+        var findById = $self.request.query;
+        findById.userToken = $self.cookies.get('token');
+        yield (server().emailId(findById)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/emailDelete/delete', function*(){//删除邮件汇总数据
+        var $self = this;
+        var deleteData = $self.request.query;
+        deleteData.userToken = $self.cookies.get('token');
+        yield (server().emailDelete(deleteData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/emailCount/count', function*(){//获取邮件汇总总条数
+        var $self = this;
+        var token = {userToken:$self.cookies.get('token')};
+        yield (server().emailCount(token)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/emailCongeal/congeal', function*(){//冻结邮件汇总数据
+        var $self = this;
+        var congealData = $self.request.query;
+        congealData.userToken = $self.cookies.get('token');
+        yield (server().emailCongeal(congealData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/emailThaw/thaw', function*(){//解冻邮件汇总数据
+        var $self = this;
+        var thawData = $self.request.query;
+        thawData.userToken = $self.cookies.get('token');
+        yield (server().emailThaw(thawData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+//----------------------------------------权限----------------------------------------
+    }).get('/guidePermission1/guide/:guideAddrStatus', function*(){
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,userToken:$self.cookies.get('token')};
+        yield (server().guidePermission1(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/guidePermission2/guide/:guideAddrStatus', function*(){
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,userToken:$self.cookies.get('token')};
+        yield (server().guidePermission2(page)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/guidePermission3/guide/:guideAddrStatus', function*(){
+        var $self = this;
+        var page = {name:$self.params.guideAddrStatus,userToken:$self.cookies.get('token')};
+        yield (server().guidePermission3(page)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;

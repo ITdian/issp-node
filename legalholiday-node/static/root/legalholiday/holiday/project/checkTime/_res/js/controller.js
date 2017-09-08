@@ -1,10 +1,6 @@
-/**
- * Created by ike on 2017/4/18.
- */
-var app = angular.module('checkTime', ['toastr','ipCookie']);
-app.controller('checkTimeCtrl', function($scope, projectSer,$state,toastr,$stateParams,ipCookie){
-    var name = ipCookie('name');
-    var checkTimeName = {name : name};
+var app = angular.module('checkTime', ['toastr']);
+app.controller('checkTimeCtrl', function($scope, projectSer,$state,toastr,$stateParams){
+    var checkTimeName = {name : $stateParams.num};
     //查看更多
     $scope.moreList = function(event){
         angular.forEach($scope.checkProList.data,function(obj){
@@ -19,13 +15,13 @@ app.controller('checkTimeCtrl', function($scope, projectSer,$state,toastr,$state
     function activatePage(page) {
         var listData = {
             page:page,
-            name:name
+            name:checkTimeName.name
         }
         projectSer.checkTimeList(listData).then(function(response){
             if(response.data.code==0){
                 $scope.checkTimeLists = response.data;
             }else{
-                toastr.error( "请求超时，请联系管理员", '温馨提示');
+                toastr.error( response.data.msg, '温馨提示');
             }
         });
     }
@@ -39,7 +35,7 @@ app.controller('checkTimeCtrl', function($scope, projectSer,$state,toastr,$state
         if(response.data.code == 0){
             $scope.project.itemsCount = response.data.data;
         }else{
-            toastr.error( "请求超时，请联系管理员", '温馨提示');
+            toastr.error( response.data.msg, '温馨提示');
         }
     });
 });

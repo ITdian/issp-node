@@ -22,22 +22,22 @@ app.controller('subpackageCtrl',function ($scope,$state) {
         $scope.idListd = window.location.href.split('id=')[1];
     }
     //新增
-    // if (window.location.href.split('id=')[1]) {//如果是刷新进来的页面，没有经过list
-    //     $scope.idList = window.location.href.split('id=')[1];
-    // }
-    // $scope.menuCheck = function (name) {
-    //     var buttonName = name;
-    //     $scope.buttonShow = true;
-    //     subpackageSer.ssuiGuide(buttonName).then(function(response){
-    //               debugger
-    //         if(response.data.code == 0 && response.data.data){
-    //             $scope[buttonName] = true;
-    //         }else{
-    //             $scope[buttonName] = false;
-    //         }
-    //     });
-    //     $scope.menuAdd = false;
-    // };
+    if (window.location.href.split('id=')[1]) {//如果是刷新进来的页面，没有经过list
+        $scope.idList = window.location.href.split('id=')[1];
+    }
+    $scope.menuCheck = function (name) {
+        var buttonName = name;
+        $scope.buttonShow = true;
+        subpackageSer.ssuiGuide(buttonName).then(function(response){
+                
+            if(response.data.code == 0 && response.data.data){
+                $scope[buttonName] = true;
+            }else{
+                $scope[buttonName] = false;
+            }
+        });
+        $scope.menuAdd = false;
+    };
     //监听到父Ctrl后改变事件
     $scope.$on("listId", function(event, id){
         $scope.idList = id;

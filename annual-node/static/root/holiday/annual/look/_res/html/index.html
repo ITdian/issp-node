@@ -1,0 +1,60 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>请假开始时间</span>
+            <span>请假结束时间</span>
+            <span>请假时间</span>
+            <span>请假天数</span>
+            <span>审核人</span>
+            <span>是否通过</span>
+            <span>审核意见</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in annuLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.startTime}}</p>
+                    <p mod>{{lists.endTime}}</p>
+                    <p mod>{{lists.applyTime}}</p>
+                    <p mod>{{lists.leave}}</p>
+                    <p mod>{{lists.auditor}}</p>
+                    <p mod>{{lists.audit | cover}}</p>
+                    <p mod>{{lists.opinion}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>审核时间</span>
+                                <span>请假人</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.auditTime}}</span>
+                                <span mod>{{lists.infoUsername}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+
+
+

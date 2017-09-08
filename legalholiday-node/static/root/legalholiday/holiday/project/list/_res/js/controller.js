@@ -1,10 +1,38 @@
-/**
- * Created by ike on 2017/4/13.
- */
 var app = angular.module('projectList', ['ng-pagination','toastr','ipCookie']);
-app.controller('projectListCtrl',function($scope,projectSer,toastr,ipCookie) {
-    $scope.companySearchFun = function(){
-        $scope.teamInfo = {};
+app.controller('projectListCtrl',function($scope,projectSer,toastr,ipCookie,$stateParams,$state,$location) {
+    $scope.$emit('changeId',null);
+    //获取id
+    if($stateParams.id){
+        switch ($stateParams.name){
+            case 'delete':
+                $scope.delShow = true;
+                break;
+        }
+    }
+    $scope.cancel = function(){//取消删除
+        $scope.delShow = false;
+        $state.go('root.legalholiday.holiday.project.list[12]',{id:null,name:null});
+    };
+    var count = 0;
+    $scope.delFn = function(){//确认删除
+        var data = {
+            id:$stateParams.id
+        };
+        projectSer.marketserveapplyDel1(data).then(function(response){
+            if(response.data.code==0){
+                count++;
+                toastr.info( "信息已删除", '温馨提示');
+                $scope.$emit('changeId', null);
+                $scope.delShow = false;
+                if(($scope.project.itemsCount-count)%10){
+                    $state.go('root.legalholiday.holiday.project.list[12]',{id:null,name:null});
+                }else{
+                    $state.go('root.legalholiday.holiday.project.list[12]',{id:null,name:null,page:$stateParams.page-1});
+                }
+            }else{
+                toastr.error( response.data.msg, '温馨提示');
+            }
+        });
     };
    //选择
     $scope.selectList = function(event){
@@ -16,7 +44,8 @@ app.controller('projectListCtrl',function($scope,projectSer,toastr,ipCookie) {
         $scope.iName = event.name;
         //向父Ctrl传递事件
         $scope.$emit('changeId', $scope.idList);
-        ipCookie('name', $scope.iName,{ expires:3,expirationUnit: 'minutes' });
+        $scope.$emit('changeName',$scope.iName);
+        $scope.$emit('page',$location.search().page);
     };
     //查看更多
     $scope.moreList = function(event){
@@ -29,36 +58,41 @@ app.controller('projectListCtrl',function($scope,projectSer,toastr,ipCookie) {
     };
     
     function activatePage(page) {
+        if($scope.projectLists)return
         var listData = {
-            page:page
+            page:page || 1
         }
         projectSer.listData(listData).then(function(response){
             if(response.data.code==0){
                 $scope.projectLists = response.data;
+                if($stateParams.id){
+                    if($stateParams.id.indexOf('&')){
+                        $stateParams.id = $stateParams.id.split('&')[0];
+                    }
+                    angular.forEach($scope.projectLists.data,function(obj){
+                        if(obj.id == $stateParams.id.split('&')[0]){
+                            obj._selectList = true;
+                        }
+                    });
+                    //向父Ctrl传递事件
+                    $scope.$emit('changeId', $stateParams.id);
+                }
             }else{
-                toastr.error( "请求超时，请联系管理员", '温馨提示');
+                toastr.error( response.data.msg, '温馨提示');
             }
         });
     }
     $scope.project = {
-        itemsCount: 11, //总条数
+        itemsCount: 2, //总条数
         take: 10, //每页显示
         activatePage: activatePage
     };
     projectSer.countBaseInfo1().then(function(response){
         if(response.data.code == 0){
             $scope.project.itemsCount = response.data.data;
+            $scope.num = $stateParams.page*10>10?($stateParams.page-1)*10:null;
         }else{
-            toastr.error( "请求超时，请联系管理员", '温馨提示');
+            toastr.error( response.data.msg, '温馨提示');
         }
     });
-    //删除
-    $scope.$on('deletedId',function(event,delid){
-        angular.forEach($scope.projectLists.data,function(obj){
-            if(obj.id == delid){
-                obj._delete = true
-            }
-        })
-    });
-
 });

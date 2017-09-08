@@ -1,0 +1,65 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>方案制作时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="date-icon makeTime" ng-model="schemeEdit.makeTime" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>方案类型</em></label>
+                    <input type="text" ng-verify="{}" ng-model="schemeAdd.type">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>推荐目的</em></label>
+                    <input type="text" ng-verify="{}" ng-model="schemeAdd.purpose">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>推荐开通时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="date-icon openTime" ng-model="schemeEdit.openTime" ng-verify="{}">
+                </li>
+                <li class="required mod">
+                    <label><i><img src="/images/mandatory.png"></i><em>推荐结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="date-icon closeTime" ng-model="schemeEdit.closeTime" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>适用对象</em></label>
+                    <input type="text" ng-verify="{}" ng-model="schemeEdit.suitableObj">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>推荐要求明细	</em></label>
+                    <input type="text" ng-verify="{}" ng-model="schemeEdit.requireDetail">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>推荐采纳指标</em></label>
+                    <input type="text" ng-verify="{}" ng-model="schemeEdit.acceptTarget">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>奖励标准明细</em></label>
+                    <input type="text" ng-verify="{}" ng-model="schemeEdit.awardDetail">
+                </li>
+                <li>
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="schemeEdit.remark">
+                </li>
+                <li  style="display: none">
+                    <label><em>id</em></label>
+                    <input type="text" ng-model="schemeEdit.id">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="schemeEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

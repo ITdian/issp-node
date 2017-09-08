@@ -77,11 +77,11 @@ app.controller('secureCtrl', function ($scope,$state) {
                 obj.showIs=event;
                 /* angular.forEach(function(item){ showSubAble sublist*/
                 this.showsList.forEach(function(item){
-                    //if(item.id!=obj.id){
-                        //item.showIs=!event;
-                    //}else{
-                        //item.showIs=event;
-                    //}
+                    if(item.id!=obj.id){
+                        item.showIs=!event;
+                    }else{
+                        item.showIs=event;
+                    }
                 });
             }
         }

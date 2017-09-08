@@ -1,0 +1,186 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>缴费日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time1" ng-model="vm.payDate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地区</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched area side">
+                        <select ng-model="vm.area" class="sele">
+                            <option ng-repeat="area in areas" value="{{area.area}}">{{area.area}}</option>
+                        </select> 
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="vm.area" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目组</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectGroup side">
+                        <select ng-model="vm.projectGroup" class="sele">
+                            <option ng-repeat="projectGroup in projectGroups" value="{{projectGroup.department}}">{{projectGroup.department}}</option>
+                        </select> 
+                         <input type="text"  class="inputDom ng-valid ng-not-empty ng-dirty ng-touched" ng-model="vm.projectGroup" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目名称</em></label>
+                    <input type="text" ng-model="vm.projectName" ng-verify="{}">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>租房地址</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.address">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>房东姓名</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.landlord">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>联系方式</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.contact">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>账户名称</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.accountTitle">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>银行卡号</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.bankNumber">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>银行开户行</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.bankAccount">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>房屋交租方式</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.taxesWay">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>房屋交租频率</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.taxesFequency">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>房租缴费日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time2" ng-model="vm.rentDate">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>水电费缴费频率</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.paymentFrequency">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>水电费缴费日期</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time3" ng-model="vm.paymentDate">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租（元/月）</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.rent">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>管理费，卫生费</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.fee">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>房租缴纳开始时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time4" ng-model="vm.rentStartTime">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>房租缴纳结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time5" ng-model="vm.rentEndTime">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租缴费方</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.rentPay">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>水费初期数目</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.waterBeginNum">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>水费计价金额（元/吨）</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.waterValuationMoney">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>水费期末数目</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.waterEndNum">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>水费缴纳开始时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time6" ng-model="vm.waterStartTime">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>水费缴纳结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time7" ng-model="vm.waterEndTime">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>水费缴费方</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.waterPay">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>电费初期数目</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.energyBeginNum">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>电费计价金额（元/吨）</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.energyValuationMoney">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>电费期末数目</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.energyEndNum">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>电费缴纳开始时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time8" ng-model="vm.energyStartTime">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>电费缴纳结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time9" ng-model="vm.energyEndTime">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>电费缴费方</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.energyPay">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>管道燃气费充值额度</em></label>
+                    <input type="number"  ng-verify="{}" ng-model="vm.gasRechargeLines">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>燃气费缴纳开始时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time10" ng-model="vm.gasStartTime">
+                </li>
+                <li class="required">  
+                    <label><i><img src="/images/mandatory.png"></i><em>燃气费缴纳结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="time11" ng-model="vm.gasEndTime">
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>燃气费缴费方</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.gasPay">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>房租收费是否已邮寄到广州</em></label>
+                    <select class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName yon2" ng-model="vm.rentMoneyMail">
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li class="required f-l">
+                    <label><i><img src="/images/mandatory.png"></i><em>备注</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="vm.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="rentEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

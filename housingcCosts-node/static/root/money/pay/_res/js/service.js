@@ -9,7 +9,9 @@ app.factory('paingSer',function ($http) {
         deletePaying:deletePaying,
         payingPermission:payingPermission,
         summaryArea:summaryArea,
+        summaryAreaDetail:summaryAreaDetail,
         summaryProject:summaryProject,
+        summaryProjectDetail:summaryProjectDetail,
         areaPaying:areaPaying,
         projectPaying:projectPaying
 
@@ -50,11 +52,19 @@ app.factory('paingSer',function ($http) {
     }
     //地区汇总
     function summaryArea(data) {
-        return $http.get('/summaryArea/collect?areas='+data)
+        return $http.get('/summaryArea/collect',{params:data})
+    }
+    //地区详细汇总
+    function summaryAreaDetail(data) {
+        return $http.get('/summaryAreaDetail/collect',{params:data})
     }
     //项目汇总
     function summaryProject(data) {
-        return $http.get('/summaryProject/collect?projects='+data)
+        return $http.get('/summaryProject/collect',{params:data})
+    }
+    //项目详细汇总
+    function summaryProjectDetail(data) {
+        return $http.get('/summaryProjectDetail/collect',{params:data})
     }
     //获取所有地区
     function areaPaying(){

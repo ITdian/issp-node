@@ -10,6 +10,7 @@ app.controller('levelListCtrl',function($scope,levelSer,toastr,$stateParams,$sta
         }
     }
     function activatePage(page) {
+        if($scope.levelLists)return;
         var listData = {
             page:page || 1
         };

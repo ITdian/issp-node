@@ -1,0 +1,17 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="列表" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="apply()" ng-class="{'current':menuClass=='applyMenu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="申请购买" class="same-one see">申请购买<span></span></a>
+    </li>
+    <li ng-click="transact()" ng-class="{'current':menuClass=='transactMenu','seeParent':idListd}" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="交易详情" class="same-one see">交易详情<span></span></a>
+    </li>
+    <li ng-click="buy()" ng-class="{'current':menuClass=='buyMenu','seeParent':idListd2}" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="购买" class="same-one see">购买<span></span></a>
+    </li>
+    <li ng-click="sold()" ng-class="{'current':menuClass=='soldMenu','seeParent':idListd2}" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="出售" class="same-one see">出售<span></span></a>
+    </li>
+</ul>

@@ -113,12 +113,38 @@ module.exports = function(){
                 $self.set('Content-Type','application/json;charset=utf-8');
                 $self.body=error.error;
                 console.error(error.error);
+            }));      
+    }).get('/summaryAreaDetail/collect', function*(){ //地区详细汇总已付款记录
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().summaryAreaDetail(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
             }));
     }).get('/summaryProject/collect', function*(){ //项目汇总已付款记录
         var $self = this;
         var summaryData = $self.request.query;
         summaryData.userToken = $self.cookies.get('token');
         yield (server().summaryProject(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/summaryProjectDetail/collect', function*(){ //项目详细汇总已付款记录
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().summaryProjectDetail(summaryData)
             .then((parsedBody) =>{
                 var responseText = JSON.parse(parsedBody);
                 $self.body = responseText;
@@ -253,19 +279,82 @@ module.exports = function(){
                 $self.body=error.error;
                 console.error(error.error);
             }));
-    // }).POST('/paymentWait/payment', function*(){//付款
-    //     var $self = this;
-    //     var deleteData = $self.request.body;
-    //     deleteData.userToken = $self.cookies.get('token');
-    //     yield (server().paymentWait(deleteData)
-    //         .then((parsedBody) =>{
-    //             var responseText = JSON.parse(parsedBody);
-    //             $self.body = responseText;
-    //         }).catch((error) =>{
-    //             $self.set('Content-Type','application/json;charset=utf-8');
-    //             $self.body=error.error;
-    //             console.error(error.error);
-    //         }));
+    }).get('/waitArea/collect', function*(){ //地区汇总已付款记录
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().waitArea(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));      
+    }).get('/waitAreaDetail/collect', function*(){ //地区详细汇总已付款记录
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().waitAreaDetail(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/waitProject/collect', function*(){ //项目汇总已付款记录
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().waitProject(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/waitProjectDetail/collect', function*(){ //项目详细汇总已付款记录
+        var $self = this;
+        var summaryData = $self.request.query;
+        summaryData.userToken = $self.cookies.get('token');
+        yield (server().waitProjectDetail(summaryData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/areaWait/areas', function*(){//获取地区
+        var $self = this;
+        var cityToken = {userToken:$self.cookies.get('token')};
+        yield (server().areaWait(cityToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
+    }).get('/projectWait/projects', function*(){//获取项目
+        var $self = this;
+        var cityToken = {userToken:$self.cookies.get('token')};
+        yield (server().projectWait(cityToken)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
+            }));
     //--------------------------资金准备审核表-----------------------------
     }).get('/reviewPermission/reviewPermission/:guideAddrStatus', function*(){ //资金准备审核表菜单权限
         var $self = this;
@@ -459,6 +548,19 @@ module.exports = function(){
             }).catch((error) =>{
                 $self.set('Content-Type','application/json;charset=utf-8');
                 $self.body=error.error;
+            }));
+    }).get('/getYear/year', function*(){//获取年份
+        var $self = this;
+        var findIdData = $self.request.query;
+        findIdData.userToken = $self.cookies.get('token');
+        yield (server().getYear(findIdData)
+            .then((parsedBody) =>{
+                var responseText = JSON.parse(parsedBody);
+                $self.body = responseText;
+            }).catch((error) =>{
+                $self.set('Content-Type','application/json;charset=utf-8');
+                $self.body=error.error;
+                console.error(error.error);
             }));
     })
     return router;

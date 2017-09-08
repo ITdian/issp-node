@@ -1,0 +1,39 @@
+<div class="collect">
+    <div class="sum-select">
+        <span>  
+            开始日期:
+            <input type="txt" ng-model="pro.startTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})"class="aaa startTime">
+        </span>
+        <span>  
+            结束日期:
+            <input type="txt" ng-model="pro.endTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})"class="aaa endTime">
+        </span>
+        <button ng-click="collect()" class="bbb">搜索</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead">
+            <span>部门</span>
+            <span>姓名</span>
+            <span>岗位</span>
+            <span>渠道</span>
+            <span>时间</span>
+            <span>晋升前（不包括各项补助）</span>
+            <span>晋升后（不包括各项补助）</span>
+            <span>幅度</span>
+            <span>总幅度</span>
+            <span>状态</span>
+        </li>
+        <li class="sum-tbody" ng-repeat="Lists in summaryLists">
+            <span>{{Lists.department}}</span>
+            <span>{{Lists.name}}</span>
+            <span>{{Lists.jobs}}</span>
+            <span>{{Lists.channel}}</span>
+            <span>{{Lists.times}}</span>
+            <span>{{Lists.promotionBefore}}</span>
+            <span>{{Lists.promotionAfter}}</span>
+            <span>{{Lists.extent}}</span>
+            <span>{{Lists.totalRange}}</span>
+            <span>{{Lists.status}}</span>
+        </li>
+    </ul>
+</div>

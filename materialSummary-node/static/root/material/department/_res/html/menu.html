@@ -1,0 +1,14 @@
+<ul class="list">
+    <li ng-click="summaryDay()" ng-class="{'current':menuClass=='summaryDayMenu'}" ui-sref=".summaryDay[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" title="日汇总" class="same-three">日汇总</a>
+    </li>
+    <li ng-click="summaryWeek()" ng-class="{'current':menuClass=='summaryWeekMenu'}" ui-sref=".summaryWeek[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" title="周汇总" class="same-three">周汇总</a>
+    </li>
+    <li ng-click="summaryMonth()" ng-class="{'current':menuClass=='summaryMonthMenu'}" ui-sref=".summaryMonth[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" title="月汇总" class="same-three">月汇总</a>
+    </li>
+    <li ng-click="summaryYear()" ng-class="{'current':menuClass=='summaryYearMenu'}" ui-sref=".summaryYear[12]" ng-show="COLLECT" ng-init="menuCheck('COLLECT')">
+        <a href="javascript:void(0)" title="年汇总" class="same-three">年汇总</a>
+    </li>
+</ul>

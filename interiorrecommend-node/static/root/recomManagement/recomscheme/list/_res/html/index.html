@@ -1,0 +1,92 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>方案制作时间</span>
+            <span>方案类型</span>
+            <span>推荐目的</span>
+            <span>推荐开通时间</span>
+            <span>推荐结束时间</span>
+            <span>适用对象</span>
+            <span>推荐要求明细</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in SchemeList" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{::lists.makeTime}}</p>
+                    <p mod>{{::lists.type}}</p>
+                    <p mod>{{::lists.purpose}}</p>
+                    <p mod>{{::lists.openTime}}</p>
+                    <p mod>{{::lists.closeTime}}</p>
+                    <p mod>{{::lists.suitableObj}}</p>
+                    <p mod>{{::lists.requireDetail}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>推荐采纳指标</span>
+                                <span>奖励标准明细</span>
+                                <span>综合资源部意见</span>
+                                <span>综合资源部审核</span>
+                                <span>运营商务部意见</span>
+                                <span>运营商务部审核</span>
+                                <span>总经办意见</span>
+                                <span>总经办审核</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.acceptTarget}}</span>
+                                <span mod>{{::lists.awardDetail}}</span>
+                                <span mod>{{::lists.resourcesSuggest|cover}}</span>
+                                <span mod>{{::lists.resourcesAudit|cover}}</span>
+                                <span mod>{{::lists.operateSuggest|cover}}</span>
+                                <span mod>{{::lists.operateAudit|cover}}</span>
+                                <span mod>{{::lists.generalSuggest|cover}}</span>
+                                <span mod>{{::lists.generalAudit|cover}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>备注</span>
+                                <span style="display:none">id编号</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{::lists.remark}}</span>
+                                <span mod style="display:none">{{::lists.id}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+

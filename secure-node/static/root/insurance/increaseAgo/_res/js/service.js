@@ -8,6 +8,7 @@ app.factory('increAgoSer',function ($http) {
         increAgoCount:increAgoCount,
         increAgoDelete:increAgoDelete,
         increAgoPermission:increAgoPermission,
+        getCompany:getCompany,
 
         //-----------------
         increPass:increPass,
@@ -73,5 +74,13 @@ app.factory('increAgoSer',function ($http) {
     //补全
     function increComplete(data){
         return $http.post('/increComplete/complete',data)
+    }
+    //获取公司名称
+    function getCompany(data){
+
+        return $http.get('/getCompany/company',{
+            params: data
+
+        })
     }
 });

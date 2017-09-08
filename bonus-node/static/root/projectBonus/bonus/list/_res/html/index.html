@@ -1,0 +1,93 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>项目名称</span>
+            <span>指标类别</span>
+            <span>指标名称</span>
+            <span>指标描述</span>
+            <span>计分方式</span>
+            <span>参考目标值</span>
+            <span>获取数据的数据源字段编号</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in openLists" style="display: {{lists._delete?'none':'block'}};">
+            <section class="{{lists.status==false?'congeal':''}}">
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.project}}</p>
+                    <p mod>{{lists.type}}</p>
+                    <p mod>{{lists.name}}</p>
+                    <p mod>{{lists.description}}</p>
+                    <p mod>{{lists.way}}</p>
+                    <p mod>{{lists.target}}</p>
+                    <p mod>{{lists.serialNumber}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>获取数据的数据源字段</span>
+                                <span>数据源字段路径</span>
+                                <span>系统或人工</span>
+                                <span>状态</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.field}}</span>
+                                <span mod>{{lists.route}}</span>
+                                <span mod>{{lists.difference | cover1}}</span>
+                                <span mod>{{lists.status | cover2}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="thaw-modal">
+                    <button ng-click="thaw(lists)">解冻</button>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+<div class="delete mod" ng-show="congealShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要冻结这条数据？</p>
+        <div class="btn">
+            <button ng-click="conFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow||congealShow"></div>
+
+

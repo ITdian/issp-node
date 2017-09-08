@@ -11,8 +11,8 @@
             <span>总数量(单位)</span>
             <span>总金额(元)</span>
         </li>
-        <li class="list-all">
-            <section ng-repeat="list in checkGifts.data" style="display: {{list._delete?'none':'block'}};">
+        <li class="list-all" ng-repeat="list in checkGifts.data" style="display: {{list._delete?'none':'block'}};">
+            <section>
                 <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
                     <p>{{$index+1}}</p>
                     <p class="data-id"></p>

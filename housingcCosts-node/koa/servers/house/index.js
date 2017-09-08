@@ -98,7 +98,19 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + '/payrecord/v1/collectArea?areas='+encodeURIComponent(argvs.areas),
+            uri : config()['rurl'] + '/payrecord/v1/collectArea'+urlEncode(argvs,true),
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //地区详细汇总
+    this.summaryAreaDetail = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/payrecord/v1/collectAreaDetail'+urlEncode(argvs,true),
             headers:{
                 userToken:argvs.userToken
             }
@@ -110,7 +122,19 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + '/payrecord/v1/collectProject?projects='+encodeURIComponent(argvs.projects),
+            uri : config()['rurl'] + '/payrecord/v1/collectProject'+urlEncode(argvs,true),
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //项目详细汇总
+    this.summaryProjectDetail = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/payrecord/v1/collectProjectDetail'+urlEncode(argvs,true),
             headers:{
                 userToken:argvs.userToken
             }
@@ -241,6 +265,78 @@ module.exports = function(){
         };
         return request(options);
     };
+    //地区汇总
+    this.waitArea = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/waitpay/v1/collectArea'+urlEncode(argvs,true),
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //地区详细汇总
+    this.waitAreaDetail = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/waitpay/v1/collectAreaDetail'+urlEncode(argvs,true),
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //项目汇总
+    this.waitProject = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/waitpay/v1/collectProject'+urlEncode(argvs,true),
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //项目详细汇总
+    this.waitProjectDetail = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/waitpay/v1/collectProjectDetail'+urlEncode(argvs,true),
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取地区
+    this.areaWait = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/waitpay/v1/areas',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取项目
+    this.projectWait = function(argvs){
+        var options = {
+            method : 'GET',
+            timeout : 3000,
+            uri : config()['rurl'] + '/waitpay/v1/projects',
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
     //--------------------------资金准备审核表----------------------------------------------
     //菜单权限
     this.reviewPermission = function(argvs){
@@ -334,7 +430,7 @@ module.exports = function(){
         var options = {
             method : 'GET',
             timeout : 3000,
-            uri : config()['rurl'] + '/moneyready/v1/collect?month='+encodeURIComponent(argvs.month),
+            uri : config()['rurl'] + '/moneyready/v1/collect?date='+encodeURIComponent(argvs.date),
             headers:{
                 userToken:argvs.userToken
             }
@@ -404,6 +500,18 @@ module.exports = function(){
             method : 'GET',
             timeout : 3000,
             uri : config()['rurl'] + '/waitpay/v1/setButtonPermission',//2017-06-12
+            headers:{
+                userToken:argvs.userToken
+            }
+        };
+        return request(options);
+    };
+    //获取年份
+    this.getYear = function(argvs){
+        var options = {
+            method : 'POST',
+            timeout : 3000,
+            uri : config()['rurl'] + `/waitpay/v1/year`,
             headers:{
                 userToken:argvs.userToken
             }

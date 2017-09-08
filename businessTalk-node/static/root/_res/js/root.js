@@ -208,11 +208,13 @@ function HttpInterceptor($q,toastr,$location){
         },
         response : function(res){
             if(res.data.code==403){
-                var absurl = $location.absUrl();
-                window.location.href='http://user.issp.bjike.com/login?url='+absurl
+                toastr.info( "请登录用户", '温馨提示');
+                // var absurl = $location.absUrl();
+                // window.location.href='http://user.issp.bjike.com/login?url='+absurl
             }else if(res.data.code == 401){
-                var absurl = $location.absUrl();
-                window.location.href='http://user.issp.bjike.com/login?url='+absurl
+                toastr.info( "请登录用户", '温馨提示');
+                // var absurl = $location.absUrl();
+                // window.location.href='http://user.issp.bjike.com/login?url='+absurl
             }else if(res.data.code == 'ETIMEDOUT'){
                 toastr.warning('连接超时，请稍后重试！','温馨提示')
             }else if(res.data.code==1){

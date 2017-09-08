@@ -87,6 +87,7 @@ app.controller('affilListCtrl',function($scope,affilSer,toastr,$stateParams,$sta
         });
     };
     function activatePage(page) {
+        if($scope.affilLists)return;
         var listData = {
             page:page || 1
         };

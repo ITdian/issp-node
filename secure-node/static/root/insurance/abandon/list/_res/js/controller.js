@@ -40,6 +40,7 @@ app.controller('abandListCtrl',function($scope,abandSer,toastr,$stateParams,$sta
         });
     };
     function activatePage(page) {
+        if($scope.abandLists)return;
         var listData = {
             page:page || 1
         };
